@@ -1,0 +1,25 @@
+.Item {
+    width: 413px;
+    height: 578px;
+    background-color: #fff;
+    .Title {
+        font-size: 20px;
+        text-align: center;
+        padding: 60px 0 40px 0;
+        font-weight: 700;
+        color: #000;
+    }
+    .Image {
+    }
+    .Text {
+        padding: 20px 25px 30px;
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 18px;
+    }
+    .Date {
+        font-weight: 300;
+        font-size: 15px;
+        line-height: 18px;
+    }
+}

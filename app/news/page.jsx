@@ -1,12 +1,17 @@
 import Header from "@/components/Header";
+import styles from '@/styles/page.module.scss';
 import Container from "@/components/ui/Container";
+import News from "@/components/News";
 
-const News = () => {
+const NewsPage = () => {
     return(
-       <Container>
+       <>
         <Header/>
-       </Container>
+        <main className={styles.main}>
+            <News />
+        </main>
+       </>
     );
 };
 
-export default News;
+export default NewsPage;

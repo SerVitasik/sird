@@ -4,7 +4,23 @@
     justify-content: space-between;
     height: 244px;
     .Logo {
-        background-color: #fff;
+        margin-top: 10px;
         border-radius: 50%;
+        position: relative;
+        img {
+            position: relative;
+            z-index: 2;
+        }
+        &::after {
+            content: "";
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: -10px;
+            background-color: #fff;
+            width: 303px;
+            height: 290px;
+            border-radius: 50%;
+        }
     }
 }

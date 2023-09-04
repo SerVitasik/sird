@@ -9,6 +9,9 @@ export default function HomePage() {
         
         
       </main>
+      {/* <MainComponent>
+      hello
+      </MainComponent> */}
     </>
     
   );
