@@ -1,7 +1,5 @@
 .Sird {
-    background:
-        url("../../public/mainbg.jpg"),
-        lightgray 50% / cover no-repeat;
+    background: url("../../public/mainbg.jpg"), lightgray 50% / cover no-repeat;
     height: 545px;
     width: 100%;
     background-size: cover;
@@ -12,6 +10,7 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        padding-top: 247px;
         color: #fff;
         text-shadow: 19px 4px 5px rgba(0, 0, 0, 0.25);
         font-size: 50px;

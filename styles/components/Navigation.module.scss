@@ -13,8 +13,9 @@
         display: flex;
         justify-content: center;
         align-items: center;
+        transition: all 0.3s ease 0s;
         &:hover {
-            text-decoration: underline;
+            color: #002b9a;
         }
     }
 }
