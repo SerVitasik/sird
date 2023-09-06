@@ -21,17 +21,19 @@
         line-height: 18px;
     }
 
-    .Actions {
+    .Button {
         position: absolute;
         bottom: 30px;
         left: 25px;
-        display: flex;
-        justify-content: space-between;
     }
 
     .Date {
+        position: absolute;
+        bottom: 30px;
+        right: 25px;
         font-weight: 300;
         font-size: 15px;
         line-height: 18px;
+        color: #6f6f6f;
     }
 }

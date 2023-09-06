@@ -1,0 +1,22 @@
+.MainNews {
+    margin: 70px 0 180px;
+    .Title {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 22px;
+        h2 {
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 64px;
+            font-style: normal;
+            font-weight: 700;
+            line-height: normal;
+        }
+    }
+    .List {
+        display: grid;
+        column-gap: 30px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
