@@ -1,0 +1,23 @@
+.Partners {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    padding-bottom: 122px;
+    .Title {
+        max-width: 413px;
+        h3 {
+            color: #e5e6eb;
+            text-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
+            font-size: 64px;
+            font-weight: 700;
+            line-height: normal;
+            padding-bottom: 100px;
+        }
+    }
+    .Items {
+        display: flex;
+        gap: 30px;
+        padding-bottom: 30px;
+    }
+    .Item {
+    }
+}

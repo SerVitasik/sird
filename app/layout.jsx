@@ -6,8 +6,8 @@ import '../styles/globals.scss';
 // const roboto = Roboto({ subsets: ['latin'] })
 
 export const metadata = {
-  title: 'SIRD',
-  description: 'SIRD',
+  title: 'Сіверський інститут регіональних досліджень',
+  description: 'СІВЕРСЬКИЙ ІНСТИТУТ РЕГІОНАЛЬНИХ ДОСЛІДЖЕНЬ',
 }
 
 export default function RootLayout({ children }) {
