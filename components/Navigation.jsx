@@ -10,7 +10,7 @@ const Navigation = () => {
                 <li className={styles.Link}><Link href="/news">Звіти</Link></li>
                 <li className={styles.Link}><Link href="/news">Розробки</Link></li>
                 <li className={styles.Link}><Link href="/news">Про нас</Link></li>
-                <li className={styles.Link}><Link href="/news">Проекти</Link></li>
+                <li className={styles.Link}><Link href="/news">Проєкти</Link></li>
                
             </ul>
         </nav>
