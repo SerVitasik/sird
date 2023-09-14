@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <footer>
       <Image />
-      Hello sexik!
     </footer>
   );
 };
