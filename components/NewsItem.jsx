@@ -4,6 +4,8 @@ import styles from "../styles/components/NewsItem.module.scss";
 import Button from "./ui/Button";
 
 const NewsItem = ({title, text, image, date}) => {
+    const formatedDate = `${date.getDate()}.${date.getMonth() + 1}.${date.getFullYear() % 100}`;
+
     return (
         <li className={styles.Item}>
             <h3 className={styles.Title}>{title}</h3>
@@ -13,10 +15,10 @@ const NewsItem = ({title, text, image, date}) => {
               height={235}
               priority/>
             <p className={styles.Text}>{text}</p>
-            <div className={styles.Actions}>
-                <Button>Новина</Button>
-                <div className={styles.Date}>{date.getDate()}.{date.getMonth() + 1}.{date.getFullYear()}</div>
+            <div className={styles.Button}>
+                <Button link='news'>Новина</Button>
             </div>
+            <div className={styles.Date}>{formatedDate}</div>
         </li>
     );
 }

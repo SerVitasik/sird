@@ -1,41 +1,10 @@
 import NewsItem from "./NewsItem";
 import styles from "../styles/components/News.module.scss";
 
-const DUMMY_NEWS = [
-    {
-        id: Math.random(),
-        title: 'НОВА ЯКІСТЬ МЕДИЧНИХ ПОСЛУГ НА СОСНИЧЧИНІ',
-        image: '/news/01.png',
-        text: 'Нові кабінети, діагностичний та щеплень Сосницького центру первинної медико-санітарної допомоги (ЦПМСД) відремонтовані та оснащені. Це дозволить надавати якісні послуги на первинному рівні для мешканців і мешканок територіальної громади.',
-        date: new Date('2023-06-16')
-    },
-    {
-        id: Math.random(),
-        title: 'ЦИВІЛІЗАЦІЯ МЕДИЧНИХ ПОСЛУГ В ГРОМАДІ',
-        image: '/news/01.png',
-        text: 'Неймовірно, але факт, – Україна за темпами цифровізації послуг обійшла європейські країни, а діючі електронні сервіси викликають приємний подив у європейців.',
-        date: new Date('2023-02-23')
-    },
-    {
-        id: Math.random(),
-        title: 'ЦИВІЛІЗАЦІЯ МЕДИЧНИХ ПОСЛУГ В ГРОМАДІ',
-        image: '/news/01.png',
-        text: 'Європейський Союз в особі українських територіальних громад прагне бачити суб`єктів взаємин, які здатні на прямі партнерські взаємини на основі спільних цінностей.',
-        date: new Date('2023-02-17')
-    },
-    {
-        id: Math.random(),
-        title: 'ЦИВІЛІЗАЦІЯ МЕДИЧНИХ ПОСЛУГ В ГРОМАДІ',
-        image: '/news/01.png',
-        text: 'Європейський Союз в особі українських територіальних громад прагне бачити суб`єктів взаємин, які здатні на прямі партнерські взаємини на основі спільних цінностей.',
-        date: new Date('2023-02-17')
-    },
-];
-
-const News = () => {
+const News = ({news}) => {
     return (
        <ul className={styles.newslist}>
-        {DUMMY_NEWS.map(news => <NewsItem key={news.id} title={news.title} image={news.image} text={news.text} date={news.date}/>)}
+        {news.sort((newsA, newsB) => newsB.date - newsA.date).map(news => <NewsItem key={news.id} title={news.title} image={news.image} text={news.text} date={news.date}/>)}
        </ul>
     );
 };

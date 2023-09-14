@@ -1,8 +1,9 @@
 import styles from '@/styles/components/Button.module.scss';
+import Link from 'next/link';
 
-const Button = ({children}) => {
+const Button = ({children, link}) => {
     return (
-        <button className={styles.Button}>{children}</button>
+        <Link href={link} className={styles.Button}>{children}</Link>
     );
 };
 
