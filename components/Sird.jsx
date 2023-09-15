@@ -1,9 +1,9 @@
-import styles from '../styles/components/Sird.module.scss';
+import styles from './Sird.module.scss';
 
 const Sird = () => {
     return (
-        <section className={styles.Sird}>
-            <h1 className={styles.Title}>СІВЕРСЬКИЙ ІНСТИТУТ РЕГІОНАЛЬНИХ ДОСЛІДЖЕНЬ</h1>            
+        <section className={styles.sird}>
+            <h1 className={styles.title}>СІВЕРСЬКИЙ ІНСТИТУТ РЕГІОНАЛЬНИХ ДОСЛІДЖЕНЬ</h1>            
         </section>
     );
 };

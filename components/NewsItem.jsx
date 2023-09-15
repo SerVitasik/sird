@@ -1,6 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
-import styles from "../styles/components/NewsItem.module.scss";
+import styles from "./NewsItem.module.scss";
 import Button from "./ui/Button";
 
 const NewsItem = ({title, text, image, date}) => {

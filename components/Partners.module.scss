@@ -1,9 +1,15 @@
-.Partners {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    padding-bottom: 122px;
+.partners {
+    padding: 80px 0 122px;
     background-color: #2c2f33;
-    .Title {
+    width: 100%;
+    .content {
+        margin: 0 auto;
+        max-width: 1300px;
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+    }
+
+    .title {
         max-width: 413px;
         h3 {
             color: #e5e6eb;
@@ -14,11 +20,11 @@
             padding-bottom: 100px;
         }
     }
-    .Items {
+    .items {
         display: flex;
         gap: 30px;
         padding-bottom: 30px;
     }
-    .Item {
+    .item {
     }
 }

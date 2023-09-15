@@ -1,9 +1,11 @@
-.Header {
+.header {
+    max-width: 1200px;
+    margin: 0 auto;
     color: #fff;
     display: flex;
     justify-content: space-between;
     height: 244px;
-    .Logo {
+    .logo {
         margin-top: 10px;
         border-radius: 50%;
         position: relative;

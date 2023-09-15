@@ -1,6 +1,7 @@
-.MainNews {
-    margin: 70px 0 180px;
-    .Title {
+.mainNews {
+    max-width: 1300px;
+    margin: 70px auto 90px auto;
+    .title {
         display: flex;
         justify-content: space-between;
         align-items: center;
@@ -13,8 +14,12 @@
             font-weight: 700;
             line-height: normal;
         }
+        .button {
+            padding: 5px 35px;
+            font-size: 24px;
+        }
     }
-    .List {
+    .list {
         display: grid;
         column-gap: 30px;
         grid-template-columns: repeat(3, 1fr);

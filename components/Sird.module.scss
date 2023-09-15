@@ -1,11 +1,16 @@
-.Sird {
-    background: url("../../public/mainbg.jpg"), lightgray 50% / cover no-repeat;
+.sird {
+    background:
+        url("../public/mainbg.jpg"),
+        lightgray 50% / cover no-repeat;
     height: 545px;
     width: 100%;
     background-size: cover;
     background-repeat: no-repeat;
 
-    .Title {
+    .title {
+        max-width: 1300px;
+        text-align: center;
+        margin: 0 auto;
         display: flex;
         flex-direction: column;
         justify-content: center;

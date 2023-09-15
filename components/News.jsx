@@ -1,5 +1,5 @@
 import NewsItem from "./NewsItem";
-import styles from "../styles/components/News.module.scss";
+import styles from "./News.module.scss";
 
 const News = ({news}) => {
     return (
