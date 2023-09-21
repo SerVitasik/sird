@@ -1,14 +1,44 @@
 .footer {
     background-color: #272a2e;
     color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 150px;
+
+    .content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 15px;
+        gap: 150px;
+        padding-bottom: 75px;
+    }
     .social {
+        h5 {
+            padding-bottom: 15px;
+        }
+    }
+    .list {
+        li {
+            &:first-child {
+                padding-bottom: 10px;
+            }
+            a {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+            }
+        }
     }
     .center {
     }
     .contact {
+        h5 {
+            padding-bottom: 15px;
+        }
+    }
+
+    .copyright {
+        width: 100%;
+        background-color: #1c1e20;
+        text-align: center;
+        padding: 8px 0;
     }
 }

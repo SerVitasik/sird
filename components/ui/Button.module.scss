@@ -10,7 +10,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease 0s;
     &:visited {
         color: #fff;
+    }
+
+    &:hover {
+        background: #417fb6;
     }
 }
