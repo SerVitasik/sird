@@ -1,23 +1,20 @@
-import styles from '../styles/page.module.scss';
-import Header from '../components/Header';
-import Sird from '@/components/Sird';
-import MainNews from '@/components/MainNews';
-import Partners from '@/components/Partners';
-import Footer from '@/components/Footer';
+import Header from "../components/Header";
+import Sird from "@/components/Sird";
+import MainNews from "@/components/MainNews";
+import Partners from "@/components/Partners";
+import Footer from "@/components/Footer";
+import MainComponent from "@/components/ui/MainComponent";
+import Wrapper from "@/components/ui/Wrapper";
 export default function HomePage() {
   return (
-    <>
+    <Wrapper>
       <Header />
-      <main className={styles.main}>
-        <Sird/>
-        <MainNews/>
+      <MainComponent>
+        <Sird />
+        <MainNews />
         <Partners />
-      </main>
-      <Footer/>
-      {/* <MainComponent>
-      hello
-      </MainComponent> */}
-    </>
-    
+      </MainComponent>
+      <Footer />
+    </Wrapper>
   );
 }

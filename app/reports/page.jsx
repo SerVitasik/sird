@@ -1,19 +1,16 @@
 import Header from "@/components/Header";
-import News from "@/components/News";
-import { News as DUMMY_NEWS } from "@/store/news";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-const NewsPage = () => {
+
+const ReportsPage = () => {
   return (
     <Wrapper>
       <Header />
-      <MainComponent>
-        <News news={DUMMY_NEWS} />
-      </MainComponent>
+      <MainComponent>Reports</MainComponent>
       <Footer />
     </Wrapper>
   );
 };
 
-export default NewsPage;
+export default ReportsPage;

@@ -1,10 +1,12 @@
-import styles from './Button.module.scss';
-import Link from 'next/link';
+import styles from "./Button.module.scss";
+import Link from "next/link";
 
-const Button = ({children, link}) => {
-    return (
-        <Link href={link} className={styles.Button}>{children}</Link>
-    );
+const Button = ({ children, clickHandler }) => {
+  return (
+    <button onClick={clickHandler} className={styles.Button}>
+      {children}
+    </button>
+  );
 };
 
 export default Button;

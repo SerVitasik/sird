@@ -1,58 +1,98 @@
 "use client";
 import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
+const News = ({ news }) => {
+  // const page = searchParams['page'] ?? '1';
+  // const perPage = searchParams['perPage'] ?? '12';
 
-const News = ({news}) => {
+  // const start = (Number(page) - 1) * Number(perPage);
+  // const end = start + Number(perPage);
 
-    // const page = searchParams['page'] ?? '1';
-    // const perPage = searchParams['perPage'] ?? '12';
+  // const entries = news.slice(start, end);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [filteredByContentNews, setFilteredNews] = useState(news);
+  const [selectedDate, setSelectedDate] = useState("");
 
-    // const start = (Number(page) - 1) * Number(perPage);
-    // const end = start + Number(perPage);
+  const filteredDateNews =
+    selectedDate === ""
+      ? news
+      : news.filter(
+          (item) =>
+            item.date.getFullYear().toString() === selectedDate.toString()
+        );
 
-    // const entries = news.slice(start, end);
-    const [searchTerm, setSearchTerm] = useState("");
-    const [filteredNews, setFilteredNews] = useState(news);   
+  const filtered = filteredByContentNews.filter((element) =>
+    filteredDateNews.includes(element)
+  );
 
-    const handleSearchChange = (e) => {
-        setSearchTerm(e.target.value);
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
 
-        setTimeout(() => {
-            const filtered = news.filter((item) =>
-              item.title.toLowerCase().includes(e.target.value.toLowerCase())
-            );
-            setFilteredNews(filtered);
-          }, 300);
-    };
+    setTimeout(() => {
+      const filteredByContent = news.filter(
+        (item) =>
+          item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+          item.text.toLowerCase().includes(e.target.value.toLowerCase())
+      );
+      setFilteredNews(filteredByContent);
+    }, 300);
+  };
 
-    return (
-        <>
-        <div className={styles.searchBox}>
-            <input
-                type="text"
-                placeholder="Поиск по заголовку"
-                value={searchTerm}
-                onChange={handleSearchChange}
-            />
-        </div>
-        <ul className={styles.newslist}>
-        {filteredNews
-          .sort((newsA, newsB) => newsB.date - newsA.date)
-          .map((news) => (
-            <NewsItem
-              key={news.id}
-              title={news.title}
-              image={news.image}
-              text={news.text}
-              date={news.date}
-            />
+  const handleDateChange = (e) => {
+    const selectedValue = e.target.value;
+    setSelectedDate(selectedValue === "" ? "" : parseInt(selectedValue));
+  };
+
+  const dates = news.map((news) => {
+    return news.date.getFullYear();
+  });
+
+  const filterDates = (dates) => {
+    const uniq = new Set(dates);
+    return [...uniq];
+  };
+  const filteredDates = filterDates(dates);
+  console.log(selectedDate);
+  return (
+    <>
+      <div className={styles.searchBox}>
+        <select onChange={handleDateChange}>
+          <option value="">Всі роки</option>
+          {filteredDates.map((date) => (
+            <option key={date} value={date}>
+              {date}
+            </option>
           ))}
-       </ul>
-        </>
-       
-    );
+        </select>
+        <input
+          type="text"
+          placeholder="Пошук"
+          value={searchTerm}
+          onChange={handleSearchChange}
+        />
+      </div>
+      {filtered.length > 0 ? (
+        <ul className={styles.newslist}>
+          {filtered
+            .sort((newsA, newsB) => newsB.date - newsA.date)
+            .map((news) => (
+              <NewsItem
+                key={news.id}
+                id={news.id}
+                title={news.title}
+                image={news.image}
+                text={news.text}
+                date={news.date}
+              />
+            ))}
+        </ul>
+      ) : (
+        <div className={styles.error}>Новини не знайдено</div>
+      )}
+    </>
+  );
 };
 
 export default News;

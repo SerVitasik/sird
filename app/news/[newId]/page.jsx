@@ -1,27 +1,18 @@
 import Header from "@/components/Header";
-import Container from "@/components/ui/Container";
-import styles from '@/styles/page.module.scss';
-import { useRouter } from "next/router";
+import Footer from "@/components/Footer";
+import Wrapper from "@/components/ui/Wrapper";
+import MainComponent from "@/components/ui/MainComponent";
 
-const NewsInfo = () => {
-
-    const router = useRouter();
-
-    const {pathname, query} = router;
-
-    return(
-       <Container>
-        <Header/>
-        <main className={styles.main}>
-            <h1>News {pathname}</h1>
-            <p>{query}</p>
-        </main>
-        {/* <MainComponent>
-            <h1>News {pathname}</h1>
-                <p>{query}</p>
-        </MainComponent> */}
-       </Container>
-    );
+const NewsDetailPage = (props) => {
+  return (
+    <Wrapper>
+      <Header />
+      <MainComponent>
+        <NewsDetail />
+      </MainComponent>
+      <Footer />
+    </Wrapper>
+  );
 };
 
-export default News;
+export default NewsDetailPage;

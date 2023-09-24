@@ -11,19 +11,19 @@ const Navigation = () => {
           <Link href="/news">Новини</Link>
         </li>
         <li className={styles.Link}>
-          <Link href="/news">Контакти</Link>
+          <Link href="/contacts">Контакти</Link>
         </li>
         <li className={styles.Link}>
-          <Link href="/news">Звіти</Link>
+          <Link href="/reports">Звіти</Link>
         </li>
         <li className={styles.Link}>
-          <Link href="/news">Розробки</Link>
+          <Link href="/developments">Розробки</Link>
         </li>
         <li className={styles.Link}>
-          <Link href="/news">Про нас</Link>
+          <Link href="/aboutUs">Про нас</Link>
         </li>
         <li className={styles.Link}>
-          <Link href="/news">Проєкти</Link>
+          <Link href="/projects">Проєкти</Link>
         </li>
       </ul>
     </nav>
