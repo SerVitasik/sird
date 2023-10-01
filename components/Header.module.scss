@@ -1,13 +1,13 @@
 .header {
     max-width: 1200px;
-    gap: 40px;
+    gap: 35px;
     margin: 0 auto;
     color: #fff;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 244px;
     .logo {
-        margin-top: 10px;
         border-radius: 50%;
         position: relative;
         img {
@@ -24,6 +24,60 @@
             width: 303px;
             height: 290px;
             border-radius: 50%;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .header {
+        height: 200px;
+        max-width: 700px;
+        padding: 0 10px;
+        gap: 40px;
+        .logo {
+            img {
+                width: 200px;
+                height: 100%;
+            }
+            &::after {
+                width: 217px;
+                height: 200px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header {
+        gap: 30px;
+        // margin: 10px auto;
+        margin: 0;
+        max-width: none;
+        padding: 0px 20px;
+        height: 150px;
+        .logo {
+            img {
+                width: 150px;
+                height: 100%;
+            }
+            &::after {
+                content: "";
+                width: 0;
+                height: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 479.98px) {
+    .header {
+        gap: 20px;
+        padding: 0px 10px;
+        height: 100px;
+        .logo {
+            img {
+                width: 90px;
+            }
         }
     }
 }
