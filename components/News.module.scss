@@ -1,14 +1,33 @@
-.newslist {
-    margin-top: 150px;
-    margin-bottom: 300px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    column-gap: 30px;
-    row-gap: 130px;
+.news {
+    max-width: 1300px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    .searchBox {
+        display: flex;
+        justify-content: space-between;
 
+        .select {
+            border-radius: 5px;
+        }
+        .input {
+            border-radius: 5px;
+            padding: 10px 10px;
+            width: 300px;
+        }
+    }
+    .newslist {
+        margin-top: 150px;
+        margin-bottom: 300px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        column-gap: 30px;
+        row-gap: 130px;
+    }
     .error {
         text-align: center;
         font-size: 30px;
         color: #fff;
+        font-weight: 700px;
     }
 }

@@ -29,7 +29,7 @@ const Footer = () => {
             <li><a href="tel:+380677979946"><Image src="/footer/phone.svg"
                   alt="logo"
                   width={20}
-                  height={28}/>+38067(797)9946</a></li>
+                  height={28}/>+38067 7979946</a></li>
             <li><a className={styles.email} href="mailto:siverian@gmail.com">Email: siverian@gmail.com</a></li>
           </ul>
         </div>

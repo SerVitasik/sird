@@ -46,6 +46,7 @@ const Navigation = () => {
           <li className={styles.link}>
             <Link href="/reports">Звіти</Link>
           </li>
+          
           {/* <li className={styles.link}>
             <Link href="/developments">Розробки</Link>
           </li> */}
@@ -54,6 +55,9 @@ const Navigation = () => {
           </li>
           <li className={styles.link}>
             <Link href="/projects">Проєкти</Link>
+          </li>
+          <li className={styles.link}>
+            <Link href="/reports">Анонси</Link>
           </li>
         </ul>
       </nav>

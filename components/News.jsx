@@ -56,9 +56,9 @@ const News = ({ news }) => {
   const filteredDates = filterDates(dates);
   console.log(selectedDate);
   return (
-    <>
+    <section className={styles.news}>
       <div className={styles.searchBox}>
-        <select onChange={handleDateChange}>
+        <select className={styles.select} onChange={handleDateChange}>
           <option value="">Всі роки</option>
           {filteredDates.map((date) => (
             <option key={date} value={date}>
@@ -69,6 +69,7 @@ const News = ({ news }) => {
         <input
           type="text"
           placeholder="Пошук"
+          className={styles.input}
           value={searchTerm}
           onChange={handleSearchChange}
         />
@@ -91,7 +92,7 @@ const News = ({ news }) => {
       ) : (
         <div className={styles.error}>Новини не знайдено</div>
       )}
-    </>
+    </section>
   );
 };
 
