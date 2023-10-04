@@ -1,0 +1,31 @@
+.about {
+    max-width: 1200px;
+    
+    .title {
+        text-align: center;
+        margin: 115px 0 45px;
+        color: #FFF;
+        font-size: 64px;
+        font-weight: 700;
+        text-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
+    }
+    .info {
+        max-width: 900px;
+        padding-bottom: 25px;
+    }
+
+    .content {
+       
+        color: #FFF;
+        font-size: 20px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        gap: 25px;
+    }
+
+    .list {
+        padding-left: 30px;
+        padding-bottom: 30px;
+    }
+}

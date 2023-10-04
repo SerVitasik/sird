@@ -11,7 +11,7 @@ export default function HomePage() {
       <Header />
       <MainComponent>
         <Sird />
-        <MainNews />
+        {/* <MainNews /> */}
         {/* <Partners /> */}
       </MainComponent>
       <Footer />

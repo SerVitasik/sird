@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Link from "next/link";
 import styles from "./Navigation.module.scss";
 import { useState } from "react";
@@ -7,25 +7,32 @@ const Navigation = () => {
   const [hideOrShow, setHideOrShow] = useState({});
 
   const menuHandler = () => {
-    setIsOpen(prev => !prev);
+    setIsOpen((prev) => !prev);
     if (isOpen) {
-        setHideOrShow(() => {
-          return {};
-        });
+      setHideOrShow(() => {
+        return {};
+      });
     } else {
       setHideOrShow(() => {
-        return {left: "0"};
+        return { left: "0" };
       });
     }
   };
   return (
     <div className={styles.navigation}>
-      {isOpen ? <div onClick={menuHandler} className={styles["button","button-open"]}>
-        <span></span>
-      </div> : <div onClick={menuHandler} className={styles.button}>
-        <span></span>
-      </div>}
-      <nav className={styles["body","vision"]} style={hideOrShow}>
+      {isOpen ? (
+        <div
+          onClick={menuHandler}
+          className={styles[("button", "button-open")]}
+        >
+          <span></span>
+        </div>
+      ) : (
+        <div onClick={menuHandler} className={styles.button}>
+          <span></span>
+        </div>
+      )}
+      <nav className={styles[("body", "vision")]} style={hideOrShow}>
         <ul className={styles.list}>
           <li className={styles.link}>
             <Link href="/">Головна</Link>
@@ -39,9 +46,9 @@ const Navigation = () => {
           <li className={styles.link}>
             <Link href="/reports">Звіти</Link>
           </li>
-          <li className={styles.link}>
+          {/* <li className={styles.link}>
             <Link href="/developments">Розробки</Link>
-          </li>
+          </li> */}
           <li className={styles.link}>
             <Link href="/aboutUs">Про нас</Link>
           </li>
