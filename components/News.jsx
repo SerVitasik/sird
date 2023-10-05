@@ -2,6 +2,7 @@
 import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
 import { useState, useEffect } from "react";
+import Search from "./ui/Search";
 
 const News = ({ news }) => {
   // const page = searchParams['page'] ?? '1';
@@ -57,25 +58,9 @@ const News = ({ news }) => {
   console.log(selectedDate);
   return (
     <section className={styles.news}>
-      <div className={styles.searchBox}>
-        <select className={styles.select} onChange={handleDateChange}>
-          <option value="">Всі роки</option>
-          {filteredDates.map((date) => (
-            <option key={date} value={date}>
-              {date}
-            </option>
-          ))}
-        </select>
-        <input
-          type="text"
-          placeholder="Пошук"
-          className={styles.input}
-          value={searchTerm}
-          onChange={handleSearchChange}
-        />
-      </div>
+      <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange}/>
       {filtered.length > 0 ? (
-        <ul className={styles.newslist}>
+        <ul className={styles.list}>
           {filtered
             .sort((newsA, newsB) => newsB.date - newsA.date)
             .map((news) => (

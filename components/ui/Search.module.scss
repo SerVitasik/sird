@@ -1,0 +1,23 @@
+.searchBox {
+    display: flex;
+    justify-content: space-between;
+
+    .select {
+        border-radius: 5px;
+    }
+    .input {
+        border-radius: 5px;
+        padding: 10px 10px;
+        width: 300px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .searchBox {
+        padding: 10px 5px;
+        .input {
+            padding: 5px 10px;
+            width: 180px;
+        }
+    }
+}

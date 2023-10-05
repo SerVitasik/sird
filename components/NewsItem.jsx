@@ -13,21 +13,24 @@ const NewsItem = ({ id, title, text, image, date }) => {
     router.push("/news/" + id);
   }
   return (
-    <li className={styles.Item}>
-      <h3 className={styles.Title}>{title}</h3>
+    <li className={styles.item}>
+      <div className={styles.title}>
+        <h4>{title}</h4>
+      </div>
+      
       <Image
-        className={styles.Image}
+        className={styles.image}
         src={image}
         alt="News item"
         width={413}
         height={235}
         priority
       />
-      <p className={styles.Text}>{text}</p>
-      <div className={styles.Button}>
+      <p className={styles.text}>{text}</p>
+      <div className={styles.button}>
         <Button clickHandler={showDetailsPage}>Новина</Button>
       </div>
-      <div className={styles.Date}>{formatedDate}</div>
+      <div className={styles.date}>{formatedDate}</div>
     </li>
   );
 };

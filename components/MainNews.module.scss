@@ -26,22 +26,30 @@
         grid-template-columns: repeat(3, 1fr);
     }
 }
+@media (max-width: 991.98px) {
+    .mainNews {
+        .list {
+            row-gap: 30px;
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+}
 
 @media (max-width: 767.98px) {
     .mainNews {
         max-width: none;
-        margin: 70px auto 90px auto;
+
+        margin: 30px auto 40px auto;
         .title {
-            h2 {
-                font-size: 44px;
-            }
+            flex-direction: column;
+            gap: 10px;
             .button {
                 padding: 5px 35px;
                 font-size: 24px;
             }
         }
         .list {
-            row-gap: 30px;
+            justify-self: center;
             grid-template-columns: repeat(1, 1fr);
         }
     }

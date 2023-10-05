@@ -1,12 +1,13 @@
 import Image from "next/image";
 import styles from "./Partners.module.scss";
+import Title from "./ui/Title";
 
 const Partners = () => {
     return(
        <section className={styles.partners}>
             <div className={styles.content}>
                 <div className={styles.title}>
-                    <h3>Наші гловні партнери</h3>
+                    <Title isCenter>Наші гловні партнери</Title>
                     <Image
                         src='/partners/01.svg'
                         alt="News item"
