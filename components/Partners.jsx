@@ -7,7 +7,7 @@ const Partners = () => {
        <section className={styles.partners}>
             <div className={styles.content}>
                 <div className={styles.title}>
-                    <Title isCenter>Наші гловні партнери</Title>
+                    <Title>Наші гловні партнери</Title>
                     <Image
                         src='/partners/01.svg'
                         alt="News item"
@@ -91,7 +91,7 @@ const Partners = () => {
                             width={192}
                             height={192}/>
                         </div>
-                        <div className={styles.item}>
+                        <div className={`${styles.item} ${styles.big}`}>
                             <Image 
                             src='/partners/12.svg'
                             alt="News item"

@@ -1,5 +1,5 @@
 .partners {
-    padding: 80px 0 122px;
+    padding: 80px 10px 122px;
     background-color: #2c2f33;
     width: 100%;
     .content {
@@ -11,22 +11,99 @@
 
     .title {
         max-width: 413px;
-        img {
-            margin-top: 100px;
-        }
-        h3 {
-            color: #e5e6eb;
-            text-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
-            font-size: 64px;
-            font-weight: 700;
-            line-height: normal;
-        }
+        margin: 0 auto;
+        text-align: center;
+    }
+    .banners {
     }
     .items {
         display: flex;
+        align-items: center;
+        justify-content: center;
         gap: 30px;
         padding-bottom: 30px;
     }
     .item {
+    }
+}
+
+@media (min-width: 1199px) {
+    .title {
+        img {
+            margin-top: 100px;
+        }
+    }
+}
+
+@media (max-width: 1198.98px) {
+    .title {
+        img {
+            margin-top: 50px;
+        }
+    }
+    .partners {
+        padding: 50px 10px 90px;
+        .item {
+            img {
+                height: 130px;
+                width: 130px;
+            }
+        }
+        .big {
+            img {
+                width: 290px;
+            }
+        }
+    }
+}
+@media (max-width: 991.98px) {
+    .title {
+        img {
+            margin-top: 40px;
+        }
+    }
+    .partners {
+        padding: 40px 0 60px;
+        .title {
+            // max-width: 0;
+            text-align: center;
+        }
+        .content {
+            max-width: none;
+            grid-template-columns: 1fr;
+        }
+        .items {
+            gap: 10px;
+            padding-bottom: 10px;
+            // flex-direction: column;
+        }
+        .item {
+            img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+        .big {
+            img {
+                width: 210px;
+            }
+        }
+    }
+}
+
+@media (max-width: 767.98px) {
+    .partners {
+        // padding: 30px 0px 40px 20px;
+        .item {
+            img {
+                height: 80px;
+                width: 80px;
+            }
+        }
+        .big {
+            img {
+                width: 170px;
+            }
+        }
     }
 }
