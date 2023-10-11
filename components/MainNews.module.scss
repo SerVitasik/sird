@@ -16,8 +16,25 @@
             line-height: normal;
         }
         .button {
-            padding: 5px 35px;
-            font-size: 24px;
+            border-radius: 5px;
+            background: #4b92d2;
+            color: #fff;
+            font-size: 15px;
+            font-weight: 600;
+            line-height: normal;
+            width: 150px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease 0s;
+            &:visited {
+                color: #fff;
+            }
+
+            &:hover {
+                background: #417fb6;
+            }
         }
     }
     .list {
@@ -47,9 +64,9 @@
         .title {
             flex-direction: column;
             gap: 10px;
+            font-size: 20px;
             .button {
-                padding: 5px 35px;
-                font-size: 24px;
+                font-size: 18px;
             }
         }
         .list {
@@ -66,10 +83,6 @@
         .title {
             h2 {
                 font-size: 34px;
-            }
-            .button {
-                padding: 5px 30px;
-                font-size: 22px;
             }
         }
         .list {

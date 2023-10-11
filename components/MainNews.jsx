@@ -3,15 +3,16 @@ import Button from "./ui/Button";
 import { News as DUMMY_NEWS } from "@/store/news";
 import styles from "./MainNews.module.scss";
 import Title from "./ui/Title";
+import Link from "next/link";
 
 const MainNews = () => {
   return (
     <section className={styles.mainNews}>
       <div className={styles.title}>
         <Title>Новини</Title>
-        <Button link="news" className={styles.button}>
+        <Link href="/news" className={styles.button}>
           Усі новини
-        </Button>
+        </Link>
       </div>
       <ul className={styles.list}>
         {DUMMY_NEWS.sort((newsA, newsB) => newsB.date - newsA.date)

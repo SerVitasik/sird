@@ -1,4 +1,6 @@
 import Image from "next/image";
+import Title from "./ui/Title";
+import styles from "./NewsDetail.module.scss";
 
 const NewsDetail = (props) => {
 
@@ -6,16 +8,19 @@ const NewsDetail = (props) => {
     props.news.date.getFullYear()
   }`;
 
-  return <section>
-  <h1>{props.news.title}</h1>
-  <Image src={props.news.image}
-                        alt="News item"
-                        width={1300}
-                        height={543}
-                        />
-  <div>{formatedDate}</div>
-  <p>{props.news.text}</p>
-  </section>;
+  
+
+  return (
+    <section className={styles.news}>
+      <Title isCenter>{props.news.title}</Title>
+      <div className={styles.image} >
+        <Image style={{objectFit: "contain", height: "100%", width: "100%"}} width={1300} height={543} src={props.news.image} alt="News image"/>
+      </div>
+      
+      <div className={styles.date}>{formatedDate}</div>
+      <p className={styles.text}>{props.news.text}</p>
+  </section>
+  );
 };
 
 export default NewsDetail;

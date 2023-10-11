@@ -12,6 +12,8 @@ const NewsItem = ({ id, title, text, image, date }) => {
   function showDetailsPage() {
     router.push("/news/" + id);
   }
+
+  const formatedText = text.length >= 276 ? text.slice(0, 273) + "..." : text.slice(0, text.length);
   return (
     <li className={styles.item}>
       <div className={styles.title}>
@@ -26,7 +28,7 @@ const NewsItem = ({ id, title, text, image, date }) => {
         height={235}
         priority
       />
-      <p className={styles.text}>{text}</p>
+      <p className={styles.text}>{formatedText}</p>
       <div className={styles.button}>
         <Button clickHandler={showDetailsPage}>Новина</Button>
       </div>
