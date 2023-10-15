@@ -1,3 +1,4 @@
+"use client";
 import styles from "./AboutUs.module.scss";
 import Title from "./ui/Title";
 

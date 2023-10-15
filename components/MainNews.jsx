@@ -1,5 +1,5 @@
+"use client";
 import NewsItem from "./NewsItem";
-import Button from "./ui/Button";
 import { News as DUMMY_NEWS } from "@/store/news";
 import styles from "./MainNews.module.scss";
 import Title from "./ui/Title";

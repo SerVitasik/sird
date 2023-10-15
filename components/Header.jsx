@@ -1,8 +1,8 @@
+"use client";
 import Navigation from "./Navigation";
 import styles from "./Header.module.scss";
 import Image from "next/image";
 import Link from "next/link";
-import Layout from "./ui/Layout";
 
 const Header = () => {
     return (

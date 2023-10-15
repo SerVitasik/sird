@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import Title from "./ui/Title";
 import styles from "./NewsDetail.module.scss";
