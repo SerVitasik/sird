@@ -8,25 +8,33 @@ import { useRouter } from "next/navigation";
 
 const NewNewsPage = () => {
   const router = useRouter();
-  async function addMeetupHandler(enteredMeetupData) {
-    const response = await fetch("/api/news/new", {
-      method: "POST",
-      body: JSON.stringify(enteredMeetupData),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
-
-    const data = await response.json();
-    console.log(data);
-    router.replace("/");
+  async function addNewsHandler(enteredNewsData) {
+    try {
+      const response = await fetch("/api/news", {
+        method: "POST",
+        body: JSON.stringify(enteredNewsData),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message); 
+      }
+  
+      const data = await response.json();
+      router.replace("/");
+    } catch (error) {  
+      console.error("An error occurred:", error);
+    }
   }
 
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-        <NewNewsForm onAddMeetup={addMeetupHandler} />
+        <NewNewsForm onAddNews={addNewsHandler} />
       </MainComponent>
       <Footer />
     </Wrapper>

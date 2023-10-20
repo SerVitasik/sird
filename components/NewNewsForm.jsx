@@ -6,7 +6,7 @@ const NewNewsForm = (props) => {
     const titleInputRef = useRef();
     const imageInputRef = useRef();
     const dateInputRef = useRef();
-    const descriptionInputRef = useRef();
+    const textInputRef = useRef();
   
     function submitHandler(event) {
       event.preventDefault();
@@ -14,44 +14,42 @@ const NewNewsForm = (props) => {
       const enteredTitle = titleInputRef.current.value;
       const enteredImage = imageInputRef.current.value;
       const enteredDate = dateInputRef.current.value;
-      const enteredDescription = descriptionInputRef.current.value;
+      const enteredText= textInputRef.current.value;
   
-      const meetupData = {
+      const newsData = {
         title: enteredTitle,
         image: enteredImage,
-        address: enteredDate,
-        description: enteredDescription,
+        date: enteredDate,
+        text: enteredText,
       };
   
-      props.onAddMeetup(meetupData);
+      props.onAddNews(newsData);
     }
   
     return (
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
-            <label htmlFor='title'>Meetup Title</label>
+            <label htmlFor='title'>Заголовко новини</label>
             <input type='text' required id='title' ref={titleInputRef} />
           </div>
           <div className={styles.control}>
-            <label htmlFor='image'>Meetup Image</label>
-            <input type='url' required id='image' ref={imageInputRef} />
+            <label htmlFor='image'>Посилання на зображення</label>
+            <input type='text' required id='image' ref={imageInputRef} />
           </div>
           <div className={styles.control}>
-            <label htmlFor='address'>Date</label>
+            <label htmlFor='address'>Дата публікації</label>
             <input type='date' required id='date' ref={dateInputRef} />
           </div>
           <div className={styles.control}>
-            <label htmlFor='description'>Description</label>
+            <label htmlFor='text'>Текст новини</label>
             <textarea
-              id='description'
+              id='text'
               required
               rows='5'
-              ref={descriptionInputRef}
+              ref={textInputRef}
             ></textarea>
           </div>
-          <div className={styles.actions}>
-            <button>Add Meetup</button>
-          </div>
+            <button className={styles.button}>Додати новину</button>
         </form>
     );
 };

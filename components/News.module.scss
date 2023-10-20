@@ -18,6 +18,28 @@
         text-shadow: 8px 4px 4px rgba(0, 0, 0, 0.25);
         line-height: normal;
     }
+
+    .button {
+        border-radius: 5px;
+        background: #4b92d2;
+        color: #fff;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: normal;
+        width: 150px;
+        height: 38px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease 0s;
+        &:visited {
+            color: #fff;
+        }
+
+        &:hover {
+            background: #417fb6;
+        }
+    }
 }
 
 @media (max-width: 1198.98px) {

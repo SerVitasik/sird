@@ -19,6 +19,7 @@
         text-transform: uppercase;
     }
     .image {
+        object-fit: cover;
         width: 100%;
         transition: all 0.3s ease 0s;
     }
@@ -46,7 +47,7 @@
     }
     &:hover {
         .image {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
     }
 }
@@ -54,10 +55,10 @@
 @media (max-width: 991.98px) {
     .item {
         margin: 0 5px;
-        width: 290px;
-        height: 408px;
+        width: 310px;
+        height: 498px;
         .title {
-            height: 80px;
+            height: 110px;
             font-size: 18px;
         }
         .image {

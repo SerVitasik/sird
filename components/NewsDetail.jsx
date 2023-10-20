@@ -5,8 +5,9 @@ import styles from "./NewsDetail.module.scss";
 
 const NewsDetail = (props) => {
 
-  const formatedDate = `${props.news.date.getDate()}.${props.news.date.getMonth() + 1}.${
-    props.news.date.getFullYear()
+  const newDate = new Date(props.date);
+  const formatedDate = `${newDate.getDate()}.${newDate.getMonth() + 1}.${
+    newDate.getFullYear() % 100
   }`;
 
   

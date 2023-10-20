@@ -3,6 +3,8 @@ import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
 import { useState, useEffect } from "react";
 import Search from "./ui/Search";
+import Button from "./ui/Button";
+import Link from "next/link";
 
 const News = ({ news }) => {
   // const page = searchParams['page'] ?? '1';
@@ -12,30 +14,44 @@ const News = ({ news }) => {
   // const end = start + Number(perPage);
 
   // const entries = news.slice(start, end);
+
+  
+  const newsWithCorrectDate = news.map((item)=> {
+    return {...item, date: new Date(item.date)}
+  })
+
+
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredByContentNews, setFilteredNews] = useState(news);
+  const [filteredByContentNews, setFilteredNews] = useState(newsWithCorrectDate);
   const [selectedDate, setSelectedDate] = useState("");
 
   const filteredDateNews =
     selectedDate === ""
-      ? news
-      : news.filter(
-          (item) =>
-            item.date.getFullYear().toString() === selectedDate.toString()
+      ? newsWithCorrectDate
+      : newsWithCorrectDate.filter(
+          (item) => {
+            console.log(item.date.getFullYear().toString());
+            return item.date.getFullYear().toString() === selectedDate.toString()
+          }
+            
         );
-
-  const filtered = filteredByContentNews.filter((element) =>
-    filteredDateNews.includes(element)
+  const filtered = filteredByContentNews.filter((element) => {
+    console.log(filteredDateNews);
+    return filteredDateNews.toString().includes(element);
+  }
+    
   );
-
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
 
     setTimeout(() => {
-      const filteredByContent = news.filter(
-        (item) =>
-          item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      const filteredByContent = newsWithCorrectDate.filter(
+        (item) => {
+          console.log( item.title.toLowerCase());
+          return item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
           item.text.toLowerCase().includes(e.target.value.toLowerCase())
+        }
+          
       );
       setFilteredNews(filteredByContent);
     }, 300);
@@ -46,8 +62,8 @@ const News = ({ news }) => {
     setSelectedDate(selectedValue === "" ? "" : parseInt(selectedValue));
   };
 
-  const dates = news.map((news) => {
-    return news.date.getFullYear();
+  const dates = newsWithCorrectDate.map((news) => {
+    return news.date.getFullYear().toString();
   });
 
   const filterDates = (dates) => {
@@ -65,8 +81,8 @@ const News = ({ news }) => {
             .sort((newsA, newsB) => newsB.date - newsA.date)
             .map((news) => (
               <NewsItem
-                key={news.id}
-                id={news.id}
+                key={news["_id"]}
+                id={news["_id"]}
                 title={news.title}
                 image={news.image}
                 text={news.text}

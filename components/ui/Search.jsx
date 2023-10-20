@@ -1,4 +1,5 @@
 import styles from "./Search.module.scss";
+import Link from "next/link";
 
 const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChange }) => {
   return (
@@ -11,6 +12,7 @@ const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChang
         </option>
       ))}
     </select>
+    <Link href="/news/new" className={styles.button}>Додати новину</Link>
     <input
       type="text"
       placeholder="Пошук"
