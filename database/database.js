@@ -1,8 +1,9 @@
 import mongoose from "mongoose";
+import { MONGODB_URL } from "@/config";
 
 const connectMongoDb = () => {
     try {
-        mongoose.connect("mongodb+srv://websitesird:MLwMcizyvDRWs28F@cluster0.ribwhse.mongodb.net/Sird?retryWrites=true&w=majority");
+        mongoose.connect(MONGODB_URL);
         console.log("Connected to mongodb");
         
     } catch (error) {
