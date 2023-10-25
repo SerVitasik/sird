@@ -1,10 +1,8 @@
 "use client";
 import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Search from "./ui/Search";
-import Button from "./ui/Button";
-import Link from "next/link";
 
 const News = ({ news }) => {
   // const page = searchParams['page'] ?? '1';
@@ -14,9 +12,9 @@ const News = ({ news }) => {
   // const end = start + Number(perPage);
 
   // const entries = news.slice(start, end);
-
+  console.log(news);
   
-  const newsWithCorrectDate = news.map((item)=> {
+  const newsWithCorrectDate = news.news.map((item)=> {
     return {...item, date: new Date(item.date)}
   })
 

@@ -1,33 +1,57 @@
 "use client";
 import styles from './NewNewsForm.module.scss';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import Title from './ui/Title';
+import { useRouter } from 'next/navigation';
 
 const EditNewsForm = (props) => {
-    const titleInputRef = useRef();
-    const imageInputRef = useRef();
-    const dateInputRef = useRef();
-    const textInputRef = useRef();
-  
+  const router = useRouter();
+    const [title, setTitle] = useState(props.news.news.title);
+    const [image, setImage] = useState(props.news.news.image);
+    const [text, setText] = useState(props.news.news.text);
+    const [date, setDate] = useState(props.news.news.date)
+
+    
+
     function submitHandler(event) {
       event.preventDefault();
-  
-      const enteredTitle = titleInputRef.current.value;
-      const enteredImage = imageInputRef.current.value;
-      const enteredDate = dateInputRef.current.value;
-      const enteredText= textInputRef.current.value;
-  
+
       const newsData = {
-        title: enteredTitle,
-        image: enteredImage,
-        date: enteredDate,
-        text: enteredText,
+        title,
+        image,
+        date,
+        text,
       };
-  
-      props.onEditNews(newsData);
+
+      editNewsHandler(newsData);
+
     }
 
-    console.log(props.prevNewsData);
+    async function editNewsHandler(enteredNewsData) {
+      try {
+        const response = await fetch(`/api/news/${props.news.news._id}`, {
+          method: "PUT",
+          body: JSON.stringify(enteredNewsData),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          throw new Error(errorData.message); 
+        }
+    
+        const data = await response.json();
+        console.log(data);
+        router.replace("/");
+      } catch (error) {  
+        console.error("An error occurred:", error);
+      }
+    }
+  
+
+    console.log("edit form", props.news);
     
   
     return (
@@ -36,26 +60,26 @@ const EditNewsForm = (props) => {
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовко новини</label>
-            <input value={props.prevNewsData.news.title} type='text' id='title' ref={titleInputRef} />
+            <input value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'/>
           </div>
           <div className={styles.control}>
             <label htmlFor='image'>Посилання на зображення</label>
-            <input type='text' id='image' value={props.prevNewsData.news.image} ref={imageInputRef} />
+            <input type='text' onChange={e => setImage(e.target.value)} id='image' value={image}/>
           </div>
           <div className={styles.control}>
             <label htmlFor='address'>Дата публікації</label>
-            <input type='date' id='date' value={props.prevNewsData.news.date} ref={dateInputRef} />
+            <input type='date' onChange={e => setDate(e.target.value)} id='date' value={date} />
           </div>
           <div className={styles.control}>
             <label htmlFor='text'>Текст новини</label>
             <textarea
               id='text'
               rows='5'
-              ref={textInputRef}
-              value={props.prevNewsData.news.text}
+              onChange={e => setText(e.target.value)}
+              value={text}
             ></textarea>
           </div>
-            <button className={styles.button}>Додати новину</button>
+            <button className={styles.button}>Редагувати</button>
         </form>
         </>
     );

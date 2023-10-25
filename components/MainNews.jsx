@@ -6,7 +6,7 @@ import Link from "next/link";
 
 const MainNews = ({news}) => {
 
-  const newsWithCorrectDate = news.map((item)=> {
+  const newsWithCorrectDate = news.news.map((item)=> {
     return {...item, date: new Date(item.date)}
   })
 

@@ -6,6 +6,7 @@ import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewsDetail from "@/components/NewsDetail";
 import { usePathname } from "next/navigation";
+import Loading from "@/components/ui/Loading";
 
 const NewsDetailPage = () => {
   const pathname = usePathname();
@@ -34,8 +35,6 @@ const NewsDetailPage = () => {
           setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
-      } finally {
-        setIsLoading(false); // Установите isLoading в false после завершения запроса
       }
     };
 
@@ -43,25 +42,11 @@ const NewsDetailPage = () => {
 
   }, [currentId]);
 
-  // Добавьте условие для отображения загрузки, пока данные загружаются
-  if (isLoading) {
-    return (
-      <Wrapper>
-        <Header />
-        <MainComponent>
-          <p>Loading...</p>
-        </MainComponent>
-        <Footer />
-      </Wrapper>
-    );
-  }
-  console.log(currentNews);
-  // Отображайте компонент NewsDetail только после получения данных
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-        {currentNews ? <NewsDetail news={currentNews} /> : <p>No data available</p>}
+        {isLoading ? <Loading/> : currentNews ? <NewsDetail news={currentNews} /> : <Loading/>}
       </MainComponent>
       <Footer />
     </Wrapper>
