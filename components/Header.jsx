@@ -1,4 +1,3 @@
-"use client";
 import Navigation from "./Navigation";
 import styles from "./Header.module.scss";
 import Image from "next/image";

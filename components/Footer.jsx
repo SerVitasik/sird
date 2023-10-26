@@ -1,10 +1,10 @@
 "use client";
 import Image from "next/image";
 import styles from "./Footer.module.scss";
-const Footer = () => {
+const Footer = ({withoutContent}) => {
   return (
     <footer className={styles.footer}>
-      <div className={styles.content}>
+      {withoutContent ? '' : <div className={styles.content}>
         <div className={styles.social}>
           <h5>Ми в соціальних мережах</h5>
           <ul className={styles.list}>
@@ -34,7 +34,7 @@ const Footer = () => {
             <li><a className={styles.email} href="mailto:siverian@gmail.com">Email: siverian@gmail.com</a></li>
           </ul>
         </div>
-      </div>
+      </div>}
       <div className={styles.copyright}>
       © 2023        Несанкціоноване копіювання заборонено.
       </div>
