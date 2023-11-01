@@ -1,0 +1,31 @@
+.item {
+    background-color: #fff;
+    padding: 30px 80px;
+    border-radius: 16px;
+    font-size: 24px;
+    font-style: normal;
+    max-width: 1300px;
+    line-height: normal;
+
+    .title {
+        text-transform: uppercase;
+        font-weight: 800;
+        padding-bottom: 12px;
+    }
+    .text {
+        font-weight: 400;
+    }
+
+    .date {
+        text-align: right;
+        font-weight: 700;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .item {
+        padding: 15px 30px;
+        margin: 0 5px;
+        font-size: 16px;
+    }
+}

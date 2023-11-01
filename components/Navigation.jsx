@@ -57,7 +57,7 @@ const Navigation = () => {
             <Link href="/projects">Проєкти</Link>
           </li>
           <li className={styles.link}>
-            <Link href="/reports">Анонси</Link>
+            <Link href="/announcements">Анонси</Link>
           </li>
         </ul>
       </nav>
