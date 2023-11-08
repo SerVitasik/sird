@@ -24,10 +24,7 @@ const NewsDetail = (props) => {
       router.refresh();
       router.replace('/');
     }
-
-    
-   
-  }
+  };
 
   return (
     <section className={styles.news}>

@@ -9,7 +9,7 @@ import Loading from "@/components/ui/Loading";
 
 
 const NewsPage = () => {
-  const [news, setNews] = useState(null);
+  const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -27,20 +27,32 @@ const NewsPage = () => {
         }
     
         const data = await response.json();
-        setNews(data);
-        setIsLoading(false);
+        setData(data);
+        
       } catch (error) {
         console.error("An error occurred:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
     getNews();
   }, []);
 
+  let content;
+
+  if (isLoading) {
+    content = <Loading/>
+  }
+
+  if (data) {
+    content = <News news={data.news} />
+  }
+
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-        {isLoading ? <Loading/> : news ? <News news={news} /> : <Loading/>}
+        {content}
       </MainComponent>
       <Footer />
     </Wrapper>

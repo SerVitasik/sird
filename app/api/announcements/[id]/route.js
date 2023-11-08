@@ -7,7 +7,7 @@ export async function PUT(req, {params}) {
     const updatedAnnouncements = await req.json();
     await connectMongoDb();
     await Announcements.findByIdAndUpdate(id, updatedAnnouncements);
-    return NextResponse.json({ message: "Announcements updated" }, {status: 200});
+    return NextResponse.json({ message: "Announce updated" }, {status: 200});
 }
 
 export async function GET(req, {params}) {

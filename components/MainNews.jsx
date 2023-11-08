@@ -8,7 +8,7 @@ const MainNews = ({news}) => {
 
   const newsWithCorrectDate = news.news.map((item)=> {
     return {...item, date: new Date(item.date)}
-  })
+  });
 
   return (
     <section className={styles.mainNews}>

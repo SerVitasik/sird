@@ -1,5 +1,4 @@
 "use client"
-import { useRouter } from "next/navigation";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";

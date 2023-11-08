@@ -3,51 +3,55 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-import AnnouncementsList from "@/components/announcements/AnnouncementsList";
-import Title from "@/components/ui/Title";
+import EditAnnouncementsForm from "@/components/announcements/EditAnnouncementsForm";
+import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
 
-const Announcements = () => {
-
-  const [data, setData] = useState(null);
+const NewsEditPage = () => {
+  const pathname = usePathname();
+  const currentId = pathname.split("/").pop();
+  const [currentAnnounce, setCurrentNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getAnnouncements = async () => {
+    const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:3000/api/announcements", {
+        const response = await fetch(`http://localhost:3000/api/announcements/${currentId}`, {
           cache: 'no-store',
-          next: { revalidate: 10 }
         });
-    
+
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message); 
+          throw new Error(errorData.message);
         }
-    
+
         const data = await response.json();
-        setData(data);
-        setIsLoading(false);
+        console.log("data", data);
+        
+
+          setCurrentNews(data);
+          setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
-      }
+      } 
     };
-    getAnnouncements();
-  }, []);
-  console.log(data);
 
+    fetchData();
+
+  }, [currentId]);
+  
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-        <Title isCenter >Анонси</Title>
-        {isLoading ? <Loading/> : data ? <AnnouncementsList announcements={data.announcements} /> : <Loading/>}
+      {isLoading ? <Loading/> : currentAnnounce ? <EditAnnouncementsForm announce={currentAnnounce} /> : <Loading/>}
       </MainComponent>
       <Footer />
     </Wrapper>
   );
+  
 };
 
-export default Announcements;
+export default NewsEditPage;

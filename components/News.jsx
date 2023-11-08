@@ -14,7 +14,7 @@ const News = ({ news }) => {
   // const entries = news.slice(start, end);
   console.log(news);
   
-  const newsWithCorrectDate = news.news.map((item)=> {
+  const newsWithCorrectDate = news.map((item)=> {
     return {...item, date: new Date(item.date)}
   })
 
