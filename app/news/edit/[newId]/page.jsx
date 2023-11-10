@@ -42,11 +42,22 @@ const NewsEditPage = () => {
 
   }, [currentId]);
   
+  let content;
+
+  if (isLoading) {
+    content = <Loading/>
+  }
+
+  if (currentNews) {
+    content = <EditNewsForm news={currentNews} />
+  }
+
+
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-      {isLoading ? <Loading/> : currentNews ? <EditNewsForm news={currentNews} /> : <Loading/>}
+        {content}
       </MainComponent>
       <Footer />
     </Wrapper>

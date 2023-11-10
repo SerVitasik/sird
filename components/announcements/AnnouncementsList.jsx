@@ -1,7 +1,6 @@
 import AnnouncementsItem from "./AnnouncementsItem";
 import styles from "./AnnouncementsList.module.scss";
 import Link from "next/link";
-// import { Announcements } from "@/store/announcements";
 
 const AnnouncementsList = ({announcements}) => {
 

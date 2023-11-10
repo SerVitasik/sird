@@ -41,12 +41,22 @@ const NewsEditPage = () => {
     fetchData();
 
   }, [currentId]);
+
+  let content;
+
+  if (isLoading) {
+    content = <Loading/>
+  }
+
+  if (currentAnnounce) {
+    content =  <EditAnnouncementsForm announce={currentAnnounce} />
+  }
   
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-      {isLoading ? <Loading/> : currentAnnounce ? <EditAnnouncementsForm announce={currentAnnounce} /> : <Loading/>}
+        {content}
       </MainComponent>
       <Footer />
     </Wrapper>

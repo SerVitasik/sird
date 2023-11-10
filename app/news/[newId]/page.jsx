@@ -42,11 +42,22 @@ const NewsDetailPage = () => {
 
   }, [currentId]);
 
+  let content;
+
+  if (isLoading) {
+    content = <Loading/>
+  }
+
+  if (currentNews) {
+    content = <NewsDetail news={currentNews} />
+  }
+
+
   return (
     <Wrapper>
       <Header />
       <MainComponent>
-        {isLoading ? <Loading/> : currentNews ? <NewsDetail news={currentNews} /> : <Loading/>}
+        {content}
       </MainComponent>
       <Footer />
     </Wrapper>

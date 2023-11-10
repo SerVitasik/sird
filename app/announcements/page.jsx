@@ -36,14 +36,23 @@ const Announcements = () => {
     };
     getAnnouncements();
   }, []);
-  console.log(data);
+
+  let content;
+
+  if (isLoading) {
+    content = <Loading/>
+  }
+
+  if (data) {
+    content = <AnnouncementsList announcements={data.announcements} />
+  }
 
   return (
     <Wrapper>
       <Header />
       <MainComponent>
         <Title isCenter >Анонси</Title>
-        {isLoading ? <Loading/> : data ? <AnnouncementsList announcements={data.announcements} /> : <Loading/>}
+        {content}
       </MainComponent>
       <Footer />
     </Wrapper>

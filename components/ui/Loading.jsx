@@ -4,7 +4,7 @@ import Title from "./Title";
 const Loading = () => {
   return (
     <div  className={styles.loading}>
-      <Title isCenter> Loading...</Title>
+      <Title isCenter>Завантаження...</Title>
     </div>
   );
 };
