@@ -1,14 +1,13 @@
 .contacts {
-    padding-top: 115px;
+    padding-top: 80px;
     color: #fff;
     max-width: 1300px;
     margin: 0 auto;
     width: 100%;
 
     .list {
-        margin-top: 80px;
         a {
-            padding-top: 3n0px;
+            padding-top: 15px;
             font-size: 32px;
             font-weight: 700;
             display: flex;
@@ -20,11 +19,10 @@
 
 @media (max-width: 991.98px) {
     .contacts {
-        padding-top: 50px;
+        padding-top: 40px;
         padding: 0 10px;
         max-width: none;
         .list {
-            margin-top: 30px;
             a {
                 font-size: 26px;
                 gap: 10px;

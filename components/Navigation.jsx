@@ -2,6 +2,7 @@
 import Link from "next/link";
 import styles from "./Navigation.module.scss";
 import { useState } from "react";
+
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hideOrShow, setHideOrShow] = useState({});

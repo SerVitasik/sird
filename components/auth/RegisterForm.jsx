@@ -1,32 +1,38 @@
 "use client";
-import styles from './LoginForm.module.scss';
+import styles from './RegisterForm.module.scss';
 import { useRef, useState } from 'react';
-import { signIn } from "next-auth/react";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 
-const LoginForm = () => {
+const RegisterForm = () => {
     const [error, setError] = useState("");
     const usernameInputRef = useRef();
     const passwordInputRef = useRef();
+
     const router = useRouter();
-  
-    async function loginHandler(enteredUserData) {
+    async function addUserHandler(enteredUserData) {
       try {
-        const res = await signIn('credentials', {
-          username: enteredUserData.username,
-          password: enteredUserData.password,
-          redirect: false
+        const response = await fetch("/api/register", {
+          method: "POST",
+          body: JSON.stringify(enteredUserData),
+          headers: {
+            "Content-Type": "application/json",
+          },
         });
-        if (res.error) {
-         setError("Incorrect password");
-         return;
+        
+        if (!response.ok) {
+          const errorData = await response.json();
+          setError(errorData.message);
+          throw new Error(errorData.message); 
         }
-       router.push("/"); 
+    
+        const data = await response.json();
+        router.replace("/");
       } catch (error) {  
-        console.log(error);
+        console.error("An error occurred:", error);
       }
     }
 
+  
     function submitHandler(event) {
       event.preventDefault();
   
@@ -38,7 +44,7 @@ const LoginForm = () => {
         password: enteredPassword,
       };
   
-      loginHandler(userData);
+      addUserHandler(userData);
     }
   
     return (
@@ -52,10 +58,10 @@ const LoginForm = () => {
             <label htmlFor='password'>Пароль</label>
             <input type='password' required id='password' ref={passwordInputRef} />
           </div>
-            {error && <p className={styles.error}>{error}</p>}
-            <button className={styles.button}>Увійти</button>
+          {error && <p className={styles.error}>{error}</p>}
+            <button className={styles.button}>Зареєструватися</button>
         </form>
     );
 };
 
-export default LoginForm;
+export default RegisterForm;

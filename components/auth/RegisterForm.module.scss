@@ -17,17 +17,6 @@
     font-size: 24px;
 }
 
-.control input {
-    display: block;
-    font: inherit;
-    border-radius: 4px;
-    border: 1px solid #ccc;
-    font-size: 20px;
-    padding: 20px 30px;
-    min-width: 400px;
-    width: 100%;
-}
-
 .control {
     input {
         display: block;
@@ -41,9 +30,14 @@
     }
 }
 
-.actions {
-    margin-top: 1rem;
-    text-align: right;
+.error {
+    width: 100%;
+    background-color: #b10202;
+    border-radius: 10px;
+    color: #ffffff;
+    font-size: 18px;
+    padding: 10px;
+    margin: 10px 0;
 }
 
 .button {
@@ -66,20 +60,4 @@
     &:hover {
         background: #417fb6;
     }
-}
-
-.actions button:hover,
-.actions button:active {
-    background-color: #a50e48;
-    border-color: #a50e48;
-}
-
-.error {
-    width: 100%;
-    background-color: #b10202;
-    border-radius: 10px;
-    color: #ffffff;
-    font-size: 18px;
-    padding: 10px;
-    margin: 10px 0;
 }
