@@ -2,10 +2,13 @@
 import Link from "next/link";
 import styles from "./Navigation.module.scss";
 import { useState } from "react";
+import { signOut } from "next-auth/react";
+import { useSelector } from "react-redux";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hideOrShow, setHideOrShow] = useState({});
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   const menuHandler = () => {
     setIsOpen((prev) => !prev);
@@ -60,7 +63,9 @@ const Navigation = () => {
           <li className={styles.link}>
             <Link href="/announcements">Анонси</Link>
           </li>
+          {isAuthenticated &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
         </ul>
+        
       </nav>
     </div>
   );
