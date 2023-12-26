@@ -8,13 +8,10 @@ import MainComponent from "@/components/ui/MainComponent";
 import Wrapper from "@/components/ui/Wrapper";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
-import { useSession, signOut } from "next-auth/react";
 
 export default function HomePage() {
   const [news, setNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const {data: session, status} = useSession();
-  console.log(session);
   useEffect(() => {
     const getNews = async () => {
       try {
@@ -44,8 +41,6 @@ export default function HomePage() {
       <Header />
       <MainComponent>
         <Sird />
-        {status === "authenticated" ? <p>You cool man! {session.user.name}</p> : <p>Sorry you suck</p>}
-        <button onClick={() => signOut()}>Sign Out</button>
         {isLoading ? <Loading/> : news ? <MainNews news={news} /> : <Loading/>}
         <Partners />
       </MainComponent>

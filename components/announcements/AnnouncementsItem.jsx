@@ -2,8 +2,9 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./AnnouncementsItem.module.scss";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 const AnnouncementsItem = ({title, text, date, id}) => {
-
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   const router = useRouter();
 
   const newDate = new Date(date);
@@ -30,7 +31,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
        <li className={styles.item}>
         <div className={styles.header}>
           <h4 className={styles.title}>{title}</h4>
-          <div className={styles.actions}>
+          {isAuthenticated && <div className={styles.actions}>
             <Link href={`/announcements/edit/${id}`}><Image
                         src='/announcements/edit.svg'
                         alt="Edit button"
@@ -40,7 +41,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
             <button><Image  src='/announcements/delete.svg' onClick={removeNewsHandler}  alt="Delete button"
                         width={20}
                         height={20}/></button>
-          </div>
+          </div>}
         </div>
         
         <p className={styles.text}>{text}</p>

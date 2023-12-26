@@ -1,7 +1,9 @@
 import styles from "./Search.module.scss";
+import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
-
+import { login } from "@/store";
 const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChange }) => {
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (
     <div className={styles.searchBox}>
     <select className={styles.select} onChange={handleDateChange}>
@@ -12,7 +14,7 @@ const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChang
         </option>
       ))}
     </select>
-    <Link href="/news/new" className={styles.button}>Додати новину</Link>
+    {isAuthenticated && <Link href="/news/new" className={styles.button}>Додати новину</Link>}
     <input
       type="text"
       placeholder="Пошук"

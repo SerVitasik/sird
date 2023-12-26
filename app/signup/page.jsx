@@ -34,7 +34,7 @@ const SignUp = () => {
     <Wrapper>
       <Header />
       <MainComponent>
-        <RegisterForm />
+        {/* <RegisterForm /> */}
       </MainComponent>
       <Footer />
     </Wrapper>

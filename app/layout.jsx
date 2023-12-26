@@ -1,10 +1,8 @@
-
+"use client";
+import store from "@/store";
 import "../styles/globals.scss";
 import { AuthProvider } from "./Providers";
-
-// import { Roboto } from 'next/font/google';
-
-// const roboto = Roboto({ subsets: ['latin'] })
+import { Provider } from 'react-redux';
 
 export const metadata = {
   title: "Сіверський інститут регіональних досліджень",
@@ -14,9 +12,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <title>{metadata.title}</title>
+        <meta name="description" content={metadata.description} />
+      </head>
       <body>
         <AuthProvider>
-          {children}
+          <Provider store={store}>
+            {children}
+          </Provider>
         </AuthProvider>
         </body>
     </html>

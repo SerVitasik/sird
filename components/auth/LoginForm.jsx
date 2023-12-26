@@ -3,12 +3,14 @@ import styles from './LoginForm.module.scss';
 import { useRef, useState } from 'react';
 import { signIn } from "next-auth/react";
 import { useRouter } from 'next/navigation';
-
+import { login } from '@/store';
+import { useDispatch } from 'react-redux';
 const LoginForm = () => {
     const [error, setError] = useState("");
     const usernameInputRef = useRef();
     const passwordInputRef = useRef();
     const router = useRouter();
+    const dispatch = useDispatch();
   
     async function loginHandler(enteredUserData) {
       try {
@@ -21,6 +23,7 @@ const LoginForm = () => {
          setError("Incorrect password");
          return;
         }
+        dispatch(login());
        router.push("/"); 
       } catch (error) {  
         console.log(error);
