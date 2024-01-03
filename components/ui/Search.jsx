@@ -1,7 +1,7 @@
 import styles from "./Search.module.scss";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import Link from "next/link";
-import { login } from "@/store";
+
 const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChange }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
   return (

@@ -1,7 +1,5 @@
-
 import styles from "./Contacts.module.scss";
 import Image from "next/image";
-import Link from "next/link";
 import Title from "./ui/Title";
 
 const Contacts = () => {

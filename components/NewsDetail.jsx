@@ -1,5 +1,4 @@
 "use client";
-import Title from "./ui/Title";
 import styles from "./NewsDetail.module.scss";
 import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";

@@ -1,6 +1,6 @@
 "use client";
 import styles from './NewNewsForm.module.scss';
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 import Title from './ui/Title';
 import { useRouter } from 'next/navigation';
 

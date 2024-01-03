@@ -24,8 +24,6 @@ const RegisterForm = () => {
           setError(errorData.message);
           throw new Error(errorData.message); 
         }
-    
-        const data = await response.json();
         router.replace("/");
       } catch (error) {  
         console.error("An error occurred:", error);

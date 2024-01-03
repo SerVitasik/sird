@@ -33,6 +33,7 @@ const authOptions = {
         jwt: true,
         strategy: "jwt"
     },
+    // eslint-disable-next-line no-undef
     secret: process.env.NEXTAUTH_SECRET,
     pages: {
         signIn: "/signin"

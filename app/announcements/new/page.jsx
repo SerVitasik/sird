@@ -22,8 +22,6 @@ const NewAnnouncementsPage = () => {
         const errorData = await response.json();
         throw new Error(errorData.message); 
       }
-  
-      const data = await response.json();
       router.replace("/");
     } catch (error) {  
       console.error("An error occurred:", error);
