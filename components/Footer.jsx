@@ -2,6 +2,9 @@
 import Image from "next/image";
 import styles from "./Footer.module.scss";
 const Footer = ({withoutContent}) => {
+
+  const currentYear = new Date();
+
   return (
     <footer className={styles.footer}>
       {withoutContent ? '' : <div className={styles.content}>
@@ -36,7 +39,11 @@ const Footer = ({withoutContent}) => {
         </div>
       </div>}
       <div className={styles.copyright}>
-      © 2023        Несанкціоноване копіювання заборонено.
+        <div>Developed by Vitalii Kulyk</div>
+        <div>
+        © {currentYear.getFullYear()} Несанкціоноване копіювання заборонено.
+        </div>
+        <div>Designed by Chudin Mykola</div>
       </div>
     </footer>
   );

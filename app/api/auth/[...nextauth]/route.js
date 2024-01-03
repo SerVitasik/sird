@@ -10,12 +10,6 @@ const authOptions = {
             credentials: {},
             async authorize(credentials) {
                 const {username, password} = credentials;
-                // const user = {
-                //     _id: "123d",
-                //     name: 'Yobik',
-                //     password: "dgrgrgrg"
-                // }
-                // return user;
                 try {
                     await connectMongoDb();
                     const user = await User.findOne({username});
@@ -27,8 +21,6 @@ const authOptions = {
                     if (!passwordsMatch) {
                         return null;
                     }
-                    console.log("user", user._id);
-                    
                     return { id: user._id, name: user.username };
                 } catch (error) {
                     console.log(error);

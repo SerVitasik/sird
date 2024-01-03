@@ -85,13 +85,24 @@
 @media (max-width: 767.98px) {
     .news {
         max-width: none;
-        margin: 0 auto 150px;
-        .text {
-            font-size: 16px;
+        margin: 40px auto;
+        display: block;
+        .image {
+            margin-top: 0;
         }
-        .date {
-            margin: 20px 0 40px;
-            font-size: 18px;
+        .content {
+            margin-top: 40px;
+            .title {
+                font-size: 26px;
+                padding-bottom: 20px;
+            }
+            .text {
+                margin-top: 15px;
+                font-size: 16px;
+            }
+            .date {
+                margin-top: 15px;
+            }
         }
     }
 }

@@ -48,24 +48,19 @@ const Navigation = () => {
             <Link href="/contacts">Контакти</Link>
           </li>
           <li className={styles.link}>
-            <Link href="/reports">Звіти</Link>
+            <a href="https://drive.google.com/drive/folders/1saBrI1aeGq2ZTooA7e-l5g0ZVAY-kzOg?usp=sharing">Звіти</a>
           </li>
-          
-          {/* <li className={styles.link}>
-            <Link href="/developments">Розробки</Link>
-          </li> */}
           <li className={styles.link}>
             <Link href="/aboutUs">Про нас</Link>
           </li>
           <li className={styles.link}>
-            <Link href="/projects">Проєкти</Link>
+            <a href="https://drive.google.com/drive/folders/1xygqczH2wYCE9XpnIg-T3QexID0sO67g?usp=drive_link">Проєкти</a>
           </li>
           <li className={styles.link}>
             <Link href="/announcements">Анонси</Link>
           </li>
           {isAuthenticated &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
         </ul>
-        
       </nav>
     </div>
   );
