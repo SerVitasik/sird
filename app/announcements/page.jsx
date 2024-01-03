@@ -17,7 +17,7 @@ const Announcements = () => {
     const getAnnouncements = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:3000/api/announcements", {
+        const response = await fetch("/api/announcements", {
           cache: 'no-store',
           next: { revalidate: 10 }
         });

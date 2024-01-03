@@ -16,7 +16,7 @@ const NewsPage = () => {
     const getNews = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("http://localhost:3000/api/news", {
+        const response = await fetch("/api/news", {
           cache: 'no-store',
           next: { revalidate: 10 }
         });

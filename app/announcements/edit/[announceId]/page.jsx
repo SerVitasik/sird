@@ -18,7 +18,7 @@ const NewsEditPage = () => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`http://localhost:3000/api/announcements/${currentId}`, {
+        const response = await fetch(`/api/announcements/${currentId}`, {
           cache: 'no-store',
         });
 
