@@ -5,15 +5,6 @@ import { useState } from "react";
 import Search from "./ui/Search";
 
 const News = ({ news }) => {
-  // const page = searchParams['page'] ?? '1';
-  // const perPage = searchParams['perPage'] ?? '12';
-
-  // const start = (Number(page) - 1) * Number(perPage);
-  // const end = start + Number(perPage);
-
-  // const entries = news.slice(start, end);
-  console.log(news);
-  
   const newsWithCorrectDate = news.map((item)=> {
     return {...item, date: new Date(item.date)}
   })
@@ -31,17 +22,15 @@ const News = ({ news }) => {
             console.log(item.date.getFullYear().toString());
             return item.date.getFullYear().toString() === selectedDate.toString()
           }
-            
         );
-  const filtered = filteredByContentNews.filter((element) => {
-    console.log(filteredDateNews);
-    return filteredDateNews.toString().includes(element);
-  }
-    
-  );
+        console.log("Date filter", filteredDateNews);
+
+  const filtered = filteredByContentNews.filter((newsObject) => {
+    return filteredDateNews.some(element => JSON.stringify(element) === JSON.stringify(newsObject));
+  });
+      console.log("Content filter", filteredByContentNews);
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
-
     setTimeout(() => {
       const filteredByContent = newsWithCorrectDate.filter(
         (item) => {
@@ -69,7 +58,7 @@ const News = ({ news }) => {
     return [...uniq];
   };
   const filteredDates = filterDates(dates);
-  console.log(selectedDate);
+  console.log(filteredDates);
   return (
     <section className={styles.news}>
       <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange}/>
