@@ -29,6 +29,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
 
     return (
        <li className={styles.item}>
+        <div className={styles.content}>
         <div className={styles.header}>
           <h4 className={styles.title}>{title}</h4>
           {isAuthenticated && <div className={styles.actions}>
@@ -46,6 +47,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
         
         <p className={styles.text}>{text}</p>
         <div className={styles.date}>{formatedDate}</div>
+        </div>
        </li>
     );
 }
