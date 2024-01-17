@@ -39,11 +39,11 @@ const Footer = ({withoutContent}) => {
         </div>
       </div>}
       <div className={styles.copyright}>
-        <a href="https://www.linkedin.com/in/vitalii-kulyk-9b0274245/">Developed by Vitalii Kulyk</a>
+        <a className={styles.dev} href="https://www.linkedin.com/in/vitalii-kulyk-9b0274245/">Developed by Vitalii Kulyk</a>
         <div>
         © {currentYear.getFullYear()} Несанкціоноване копіювання заборонено.
         </div>
-        <a href="https://www.linkedin.com/in/mykola-chudyn-0b587627b/">Designed by Chudin Mykola</a>
+        <a className={styles.des} href="https://www.linkedin.com/in/mykola-chudyn-0b587627b/">Designed by Chudin Mykola</a>
       </div>
     </footer>
   );

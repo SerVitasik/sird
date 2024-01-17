@@ -69,7 +69,13 @@
         }
         .copyright {
             gap: 10px;
-            display: block;
+            flex-direction: column;
+            .dev {
+                order: 1;
+            }
+            .des {
+                order: 2;
+            }
         }
     }
 }
