@@ -1,6 +1,6 @@
 "use client";
 import Header from "@/components/Header";
-import News from "@/components/News";
+import News from "@/components/news/News";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";

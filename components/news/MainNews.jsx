@@ -1,7 +1,7 @@
 import NewsItem from "./NewsItem";
 // import { News as DUMMY_NEWS } from "@/store/news";
 import styles from "./MainNews.module.scss";
-import Title from "./ui/Title";
+import Title from "../ui/Title";
 import Link from "next/link";
 
 const MainNews = ({news}) => {

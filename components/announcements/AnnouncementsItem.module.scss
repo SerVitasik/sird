@@ -3,7 +3,8 @@
     padding: 30px 80px;
     border-radius: 16px;
     font-style: normal;
-    max-width: 1300px;
+    width: 100%;
+    min-width: 1300px;
     line-height: normal;
     list-style-type: none;
     margin-bottom: 50px;
@@ -44,12 +45,13 @@
 
 @media (max-width: 1198.98px) {
     .item {
-        max-width: 900px;
+        min-width: 900px;
     }
 }
 
 @media (max-width: 991.98px) {
     .item {
+        min-width: 700px;
         padding: 15px 30px;
         margin: 0 5px;
         font-size: 16px;
@@ -58,7 +60,7 @@
 
 @media (max-width: 479.98px) {
     .item {
-        max-width: 350px;
+        min-width: 350px;
         .header {
             flex-direction: column;
         }

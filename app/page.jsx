@@ -1,7 +1,7 @@
 "use client";
 import Header from "../components/Header";
 import Sird from "@/components/Sird";
-import MainNews from "@/components/MainNews";
+import MainNews from "@/components/news/MainNews";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";

@@ -4,7 +4,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-import NewsDetail from "@/components/NewsDetail";
+import NewsDetail from "@/components/news/NewsDetail";
 import { usePathname } from "next/navigation";
 import Loading from "@/components/ui/Loading";
 

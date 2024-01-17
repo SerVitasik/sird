@@ -2,7 +2,7 @@
 import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
 import { useState } from "react";
-import Search from "./ui/Search";
+import Search from "../ui/Search";
 
 const News = ({ news }) => {
   const newsWithCorrectDate = news.map((item)=> {

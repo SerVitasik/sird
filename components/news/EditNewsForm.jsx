@@ -1,7 +1,7 @@
 "use client";
 import styles from './NewNewsForm.module.scss';
 import { useState } from 'react';
-import Title from './ui/Title';
+import Title from '../ui/Title';
 import { useRouter } from 'next/navigation';
 
 const EditNewsForm = (props) => {

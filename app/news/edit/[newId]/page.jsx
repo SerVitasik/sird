@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-import EditNewsForm from "@/components/EditNewsForm";
+import EditNewsForm from "@/components/news/EditNewsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";

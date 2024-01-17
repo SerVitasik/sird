@@ -1,6 +1,6 @@
 "use client";
 import styles from "./NewsItem.module.scss";
-import Button from "./ui/Button";
+import Button from "../ui/Button";
 import { useRouter } from "next/navigation";
 
 const NewsItem = ({ id, title, text, image, date }) => {
