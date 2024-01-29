@@ -19,22 +19,18 @@ const News = ({ news }) => {
       ? newsWithCorrectDate
       : newsWithCorrectDate.filter(
           (item) => {
-            console.log(item.date.getFullYear().toString());
             return item.date.getFullYear().toString() === selectedDate.toString()
           }
         );
-        console.log("Date filter", filteredDateNews);
 
   const filtered = filteredByContentNews.filter((newsObject) => {
     return filteredDateNews.some(element => JSON.stringify(element) === JSON.stringify(newsObject));
   });
-      console.log("Content filter", filteredByContentNews);
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
     setTimeout(() => {
       const filteredByContent = newsWithCorrectDate.filter(
         (item) => {
-          console.log( item.title.toLowerCase());
           return item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
           item.text.toLowerCase().includes(e.target.value.toLowerCase())
         }
@@ -58,7 +54,6 @@ const News = ({ news }) => {
     return [...uniq];
   };
   const filteredDates = filterDates(dates);
-  console.log(filteredDates);
   return (
     <section className={styles.news}>
       <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange}/>

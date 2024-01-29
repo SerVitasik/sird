@@ -29,6 +29,7 @@ module.exports = {
         "react"
     ],
     "rules": {
+        'no-console': ['error', { allow: ['warn', 'error'] }],
         "react/react-in-jsx-scope": "off",
         "react/prop-types": "off",
     },
