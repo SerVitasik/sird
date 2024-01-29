@@ -8,7 +8,7 @@ const Partners = () => {
        <section className={styles.partners}>
             <div className={styles.content}>
                 <div className={styles.title}>
-                    <Title>Наші гловні партнери</Title>
+                    <Title>Наші головні партнери</Title>
                     <Image
                         src='/partners/01.svg'
                         alt="News item"
