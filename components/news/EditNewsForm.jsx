@@ -41,18 +41,12 @@ const EditNewsForm = (props) => {
           const errorData = await response.json();
           throw new Error(errorData.message); 
         }
-    
-        const data = await response.json();
-        console.log(data);
         router.replace("/");
       } catch (error) {  
         console.error("An error occurred:", error);
       }
     }
   
-
-    console.log("edit form", props.news);
-    
   
     return (
         <>

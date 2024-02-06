@@ -23,7 +23,7 @@ const authOptions = {
                     }
                     return { id: user._id, name: user.username };
                 } catch (error) {
-                    console.log(error);
+                    console.error(error);
                     
                 }
             },

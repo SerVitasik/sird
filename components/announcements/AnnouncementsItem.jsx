@@ -15,7 +15,6 @@ const AnnouncementsItem = ({title, text, date, id}) => {
       const removeNewsHandler = async () => {
         const confirmed = confirm('Ви впевнені, що хочете видалити новину?');
         if (confirmed) {
-          console.log(id);
           const response = await fetch(`/api/announcements?id=${id}`, {
             method: 'DELETE'
           });

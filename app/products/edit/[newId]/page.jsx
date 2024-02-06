@@ -28,8 +28,6 @@ const NewsEditPage = () => {
         }
 
         const data = await response.json();
-        console.log("data", data);
-        
 
           setCurrentNews(data);
           setIsLoading(false);

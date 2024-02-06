@@ -5,7 +5,6 @@ import Title from '../ui/Title';
 import { useRouter } from 'next/navigation';
 
 const EditAnnouncementsForm = (props) => {
-    console.log(props.announce);
   const router = useRouter();
     const [title, setTitle] = useState(props.announce.announcements.title);
     const [text, setText] = useState(props.announce.announcements.text);
@@ -40,9 +39,6 @@ const EditAnnouncementsForm = (props) => {
           const errorData = await response.json();
           throw new Error(errorData.message); 
         }
-    
-        const data = await response.json();
-        console.log(data);
         router.replace("/");
       } catch (error) {  
         console.error("An error occurred:", error);
