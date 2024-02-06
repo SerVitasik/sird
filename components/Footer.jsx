@@ -35,7 +35,7 @@ const Footer = ({withoutContent}) => {
                   width={20}
                   height={28}/>+38067 7979946</a></li>
             <li><a className={styles.email} href="mailto:siverian@gmail.com">Email: siverian@gmail.com</a></li>
-            <li><a className={styles.email} href="https://institute.sivertraining.org.ua/index.php">Попередній сайт</a></li>
+            <li><a className={styles.site} href="https://institute.sivertraining.org.ua/index.php">Попередній сайт</a></li>
           </ul>
         </div>
       </div>}

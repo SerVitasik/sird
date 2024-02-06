@@ -1,37 +1,37 @@
 "use client";
-import styles from './NewNewsForm.module.scss';
+import styles from './NewProjectsForm.module.scss';
 import { useState } from 'react';
 import Title from '../ui/Title';
 import { useRouter } from 'next/navigation';
 
-const EditNewsForm = (props) => {
+const EditProjectsForm = (props) => {
   const router = useRouter();
-    const [title, setTitle] = useState(props.news.news.title);
-    const [image, setImage] = useState(props.news.news.image);
-    const [text, setText] = useState(props.news.news.text);
-    const [date, setDate] = useState(props.news.news.date)
+    const [title, setTitle] = useState(props.projects.projects.title);
+    const [image, setImage] = useState(props.projects.projects.image);
+    const [text, setText] = useState(props.projects.projects.text);
+    const [date, setDate] = useState(props.projects.projects.date)
 
     
 
     function submitHandler(event) {
       event.preventDefault();
 
-      const newsData = {
+      const projectsData = {
         title,
         image,
         date,
         text,
       };
 
-      editNewsHandler(newsData);
+      editProjectsHandler(projectsData);
 
     }
 
-    async function editNewsHandler(enteredNewsData) {
+    async function editProjectsHandler(enteredProjectsData) {
       try {
-        const response = await fetch(`/api/news/${props.news.news._id}`, {
+        const response = await fetch(`/api/projects/${props.projects.projects._id}`, {
           method: "PUT",
-          body: JSON.stringify(enteredNewsData),
+          body: JSON.stringify(enteredProjectsData),
           headers: {
             "Content-Type": "application/json",
           },
@@ -50,16 +50,12 @@ const EditNewsForm = (props) => {
       }
     }
   
-
-    console.log("edit form", props.news);
-    
-  
     return (
         <>
-        <Title isCenter>Редагування новини</Title>
+        <Title isCenter>Редагування</Title>
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
-            <label htmlFor='title'>Заголовок новини</label>
+            <label htmlFor='title'>Заголовк</label>
             <input value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'/>
           </div>
           <div className={styles.control}>
@@ -71,7 +67,7 @@ const EditNewsForm = (props) => {
             <input type='date' onChange={e => setDate(e.target.value)} id='date' value={date} />
           </div>
           <div className={styles.control}>
-            <label htmlFor='text'>Текст новини</label>
+            <label htmlFor='text'>Текст</label>
             <textarea
               id='text'
               rows='5'
@@ -85,4 +81,4 @@ const EditNewsForm = (props) => {
     );
 };
 
-export default EditNewsForm;
+export default EditProjectsForm;

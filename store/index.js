@@ -1,6 +1,5 @@
 import { configureStore, createSlice } from '@reduxjs/toolkit';
 
-// Создаем slice для хранения состояния логина
 const authSlice = createSlice({
   name: 'auth',
   initialState: {
@@ -17,10 +16,8 @@ const authSlice = createSlice({
   },
 });
 
-// Экспортируем actions для использования в компонентах
 export const { login, logout } = authSlice.actions;
 
-// Создаем стор с использованием configureStore
 const store = configureStore({
   reducer: {
     auth: authSlice.reducer,

@@ -1,8 +1,8 @@
 "use client";
-import styles from './NewNewsForm.module.scss';
+import styles from './NewProjectsForm.module.scss';
 import { useRef } from 'react';
 
-const NewNewsForm = (props) => {
+const NewProjectsForm = (props) => {
     const titleInputRef = useRef();
     const imageInputRef = useRef();
     const dateInputRef = useRef();
@@ -16,20 +16,20 @@ const NewNewsForm = (props) => {
       const enteredDate = dateInputRef.current.value;
       const enteredText= textInputRef.current.value;
   
-      const newsData = {
+      const projectsData = {
         title: enteredTitle,
         image: enteredImage,
         date: enteredDate,
         text: enteredText,
       };
   
-      props.onAddNews(newsData);
+      props.onAddProjects(projectsData);
     }
   
     return (
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
-            <label htmlFor='title'>Заголовок новини</label>
+            <label htmlFor='title'>Заголовок</label>
             <input type='text' required id='title' ref={titleInputRef} />
           </div>
           <div className={styles.control}>
@@ -41,7 +41,7 @@ const NewNewsForm = (props) => {
             <input type='date' required id='date' ref={dateInputRef} />
           </div>
           <div className={styles.control}>
-            <label htmlFor='text'>Текст новини</label>
+            <label htmlFor='text'>Текст</label>
             <textarea
               id='text'
               required
@@ -49,9 +49,9 @@ const NewNewsForm = (props) => {
               ref={textInputRef}
             ></textarea>
           </div>
-            <button className={styles.button}>Додати новину</button>
+            <button className={styles.button}>Додати</button>
         </form>
     );
 };
 
-export default NewNewsForm;
+export default NewProjectsForm;
