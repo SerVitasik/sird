@@ -35,7 +35,7 @@ const ProductsItem = ({ id, title, text, image }) => {
         <h4>{title}</h4>
       </a>
       {isAuthenticated && <div className={styles.actions}>
-            <Link href={`/announcements/edit/${id}`}><Image
+            <Link href={`/products/edit/${id}`}><Image
                         src='/announcements/edit.svg'
                         alt="Edit button"
                         width={20}
