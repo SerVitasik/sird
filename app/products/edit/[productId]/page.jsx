@@ -3,22 +3,22 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-import EditNewsForm from "@/components/news/EditNewsForm";
+import EditProductsForm from "@/components/products/EditProductsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
 
-const NewsEditPage = () => {
+const ProductsEditPage = () => {
   const pathname = usePathname();
   const currentId = pathname.split("/").pop();
-  const [currentNews, setCurrentNews] = useState(null);
+  const [currentProducts, setCurrentProducts] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/news/${currentId}`, {
+        const response = await fetch(`/api/products/${currentId}`, {
           cache: 'no-store',
         });
 
@@ -29,7 +29,7 @@ const NewsEditPage = () => {
 
         const data = await response.json();
 
-          setCurrentNews(data);
+          setCurrentProducts(data);
           setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
@@ -46,8 +46,8 @@ const NewsEditPage = () => {
     content = <Loading/>
   }
 
-  if (currentNews) {
-    content = <EditNewsForm news={currentNews} />
+  if (currentProducts) {
+    content = <EditProductsForm products={currentProducts} />
   }
 
 
@@ -63,4 +63,4 @@ const NewsEditPage = () => {
   
 };
 
-export default NewsEditPage;
+export default ProductsEditPage;

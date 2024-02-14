@@ -12,8 +12,8 @@ const AnnouncementsItem = ({title, text, date, id}) => {
       newDate.getFullYear()
       }`;
 
-      const removeNewsHandler = async () => {
-        const confirmed = confirm('Ви впевнені, що хочете видалити новину?');
+      const removeAnnouncementsHandler = async () => {
+        const confirmed = confirm('Ви впевнені, що хочете видалити продукт?');
         if (confirmed) {
           const response = await fetch(`/api/announcements?id=${id}`, {
             method: 'DELETE'
@@ -38,7 +38,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
                         width={20}
                         height={20}
                         /></Link>
-            <button><Image  src='/announcements/delete.svg' onClick={removeNewsHandler}  alt="Delete button"
+            <button><Image  src='/announcements/delete.svg' onClick={removeAnnouncementsHandler}  alt="Delete button"
                         width={20}
                         height={20}/></button>
           </div>}

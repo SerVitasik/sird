@@ -3,16 +3,16 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
-import NewNewsForm from "@/components/news/NewNewsForm";
+import NewProductsForm from "@/components/products/NewProductsForm";
 import { useRouter } from "next/navigation";
 
-const NewNewsPage = () => {
+const NewProductsPage = () => {
   const router = useRouter();
-  async function addNewsHandler(enteredNewsData) {
+  async function addProductsHandler(enteredProductsData) {
     try {
-      const response = await fetch("/api/news", {
+      const response = await fetch("/api/products", {
         method: "POST",
-        body: JSON.stringify(enteredNewsData),
+        body: JSON.stringify(enteredProductsData),
         headers: {
           "Content-Type": "application/json",
         },
@@ -32,11 +32,11 @@ const NewNewsPage = () => {
     <Wrapper>
       <Header />
       <MainComponent>
-        <NewNewsForm onAddNews={addNewsHandler} />
+        <NewProductsForm onAddProducts={addProductsHandler} />
       </MainComponent>
       <Footer />
     </Wrapper>
   );
 };
 
-export default NewNewsPage;
+export default NewProductsPage;

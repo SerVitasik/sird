@@ -1,6 +1,6 @@
 "use client";
 import Header from "@/components/Header";
-import News from "@/components/news/News";
+import Products from "@/components/products/Products";
 import Footer from "@/components/Footer";
 import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
@@ -8,15 +8,15 @@ import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
 
 
-const NewsPage = () => {
+const ProductsPage = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    const getNews = async () => {
+    const getProducts = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch("/api/news", {
+        const response = await fetch("/api/products", {
           cache: 'no-store',
           next: { revalidate: 10 }
         });
@@ -35,7 +35,7 @@ const NewsPage = () => {
         setIsLoading(false);
       }
     };
-    getNews();
+    getProducts();
   }, []);
 
   let content;
@@ -45,7 +45,7 @@ const NewsPage = () => {
   }
 
   if (data) {
-    content = <News news={data.news} />
+    content = <Products products={data.products} />
   }
 
   return (
@@ -59,4 +59,4 @@ const NewsPage = () => {
   );
 };
 
-export default NewsPage;
+export default ProductsPage;
