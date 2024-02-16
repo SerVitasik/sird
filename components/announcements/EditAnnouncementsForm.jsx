@@ -49,6 +49,7 @@ const EditAnnouncementsForm = (props) => {
     return (
         <>
         <Title isCenter>Редагування анонсу</Title>
+        <span>Додави зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок анонсу</label>

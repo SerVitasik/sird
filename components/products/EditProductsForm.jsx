@@ -50,9 +50,11 @@ const EditProductsForm = (props) => {
         <>
         <Title isCenter>Редагування</Title>
         <form className={styles.form} onSubmit={submitHandler}>
+          <span>Додави зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок</label>
-            <input value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'/>
+            <textarea  rows='5' value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'>
+            </textarea>
           </div>
           <div className={styles.control}>
             <label htmlFor='image'>Посилання на зображення</label>
@@ -60,12 +62,11 @@ const EditProductsForm = (props) => {
           </div>
           <div className={styles.control}>
             <label htmlFor='text'>Текст</label>
-            <textarea
+            <input
               id='text'
-              rows='5'
               onChange={e => setText(e.target.value)}
               value={text}
-            ></textarea>
+            />
           </div>
             <button className={styles.button}>Редагувати</button>
         </form>

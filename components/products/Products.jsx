@@ -2,6 +2,7 @@ import ProductsItem from "./ProductsItem";
 import styles from "./Products.module.scss";
 import { useSelector } from "react-redux";
 import Link from "next/link";
+import Title from "../ui/Title";
 
 const Products = ({ products }) => {
 
@@ -10,6 +11,7 @@ const Products = ({ products }) => {
   return (
     <section className={styles.news}>
       {isAuthenticated && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
+      <Title isCenter>Продукти</Title>
       {products.length > 0 ? (
         <ul className={styles.list}>
           {products.map((products) => (

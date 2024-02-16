@@ -21,14 +21,14 @@ const ReportsItem = ({title, text, id}) => {
 
     return (
        <li className={styles.item}>
-        <a href={text} className={styles.content}>
-          <h3 className={styles.title}>{title}</h3>
+        <div className={styles.content}>
+          <a href={text} className={styles.title}>{title}</a>
           {isAuthenticated && <div className={styles.actions}>
             <button><Image  src='/announcements/delete.svg' onClick={removeNewsHandler}  alt="Delete button"
                         width={20}
                         height={20}/></button>
           </div>}
-        </a>
+        </div>
        </li>
     );
 }
