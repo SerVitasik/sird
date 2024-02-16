@@ -28,6 +28,7 @@ const NewProjectsForm = (props) => {
   
     return (
         <form className={styles.form} onSubmit={submitHandler}>
+          <span>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок</label>
             <input type='text' required id='title' ref={titleInputRef} />

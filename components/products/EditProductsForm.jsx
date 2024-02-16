@@ -50,7 +50,7 @@ const EditProductsForm = (props) => {
         <>
         <Title isCenter>Редагування</Title>
         <form className={styles.form} onSubmit={submitHandler}>
-          <span>Додави зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
+          <span>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок</label>
             <textarea  rows='5' value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'>

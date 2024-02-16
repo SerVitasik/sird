@@ -51,7 +51,7 @@ const EditNewsForm = (props) => {
     return (
         <>
         <Title isCenter>Редагування новини</Title>
-        <span>Додави зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
+        <span>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
         <form className={styles.form} onSubmit={submitHandler}>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок новини</label>
