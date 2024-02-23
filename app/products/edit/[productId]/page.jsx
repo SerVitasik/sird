@@ -1,7 +1,6 @@
 "use client"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import EditProductsForm from "@/components/products/EditProductsForm";
 import { usePathname } from "next/navigation";
@@ -52,13 +51,13 @@ const ProductsEditPage = () => {
 
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         {content}
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>
   );
   
 };

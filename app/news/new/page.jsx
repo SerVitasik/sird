@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewNewsForm from "@/components/news/NewNewsForm";
 import { useRouter } from "next/navigation";
@@ -29,13 +28,13 @@ const NewNewsPage = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         <NewNewsForm onAddNews={addNewsHandler} />
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>  
   );
 };
 

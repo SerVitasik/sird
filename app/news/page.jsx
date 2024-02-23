@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import News from "@/components/news/News";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
@@ -49,13 +48,13 @@ const NewsPage = () => {
   }
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <MainComponent>
-        {content}
-      </MainComponent>
+        <MainComponent>
+          {content}
+        </MainComponent>
       <Footer />
-    </Wrapper>
+    </>  
   );
 };
 

@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewReportsForm from "@/components/reports/NewReportsForm";
 import { useRouter } from "next/navigation";
@@ -29,13 +28,13 @@ const NewReportsPage = () => {
   }
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <MainComponent>
-        <NewReportsForm onAddReports={addReportsHandler} />
-      </MainComponent>
+        <MainComponent>
+          <NewReportsForm onAddReports={addReportsHandler} />
+        </MainComponent>
       <Footer />
-    </Wrapper>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 "use client"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import EditAnnouncementsForm from "@/components/announcements/EditAnnouncementsForm";
 import { usePathname } from "next/navigation";
@@ -50,13 +49,13 @@ const NewsEditPage = () => {
   }
   
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         {content}
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>  
   );
   
 };

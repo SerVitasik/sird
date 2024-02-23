@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewProjectsForm from "@/components/projects/NewProjectsForm";
 import { useRouter } from "next/navigation";
@@ -29,13 +28,13 @@ const NewProjectsPage = () => {
   }
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <MainComponent>
-        <NewProjectsForm onAddProjects={addProjectsHandler} />
-      </MainComponent>
+        <MainComponent>
+          <NewProjectsForm onAddProjects={addProjectsHandler} />
+        </MainComponent>
       <Footer />
-    </Wrapper>
+    </>
   );
 };
 

@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewProductsForm from "@/components/products/NewProductsForm";
 import { useRouter } from "next/navigation";
@@ -29,13 +28,13 @@ const NewProductsPage = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         <NewProductsForm onAddProducts={addProductsHandler} />
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>
   );
 };
 

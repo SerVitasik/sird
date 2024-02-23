@@ -5,7 +5,7 @@ import Title from "./ui/Title";
 const Contacts = () => {
     return (
         <section className={styles.contacts}>
-            <Title className={styles.title}>Контактна інформація</Title>
+            <Title isCenter>Контактна інформація</Title>
             <ul className={styles.list}>
             <li><a href="tel:+380677979946"><Image src="/footer/phone.svg"
                   alt="logo"

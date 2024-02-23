@@ -5,7 +5,6 @@ import MainNews from "@/components/news/MainNews";
 import Partners from "@/components/Partners";
 import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
-import Wrapper from "@/components/ui/Wrapper";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
 
@@ -37,14 +36,14 @@ export default function HomePage() {
   }, []);
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <MainComponent>
-        <Sird />
-        {isLoading ? <Loading/> : news ? <MainNews news={news} /> : <Loading/>}
-        <Partners />
-      </MainComponent>
+        <MainComponent>
+          <Sird />
+          {isLoading ? <Loading/> : news ? <MainNews news={news} /> : <Loading/>}
+          <Partners />
+        </MainComponent>
       <Footer />
-    </Wrapper>
+    </>
   );
 }

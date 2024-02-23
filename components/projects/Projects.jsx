@@ -55,7 +55,7 @@ const Projects = ({ projects }) => {
   };
   const filteredDates = filterDates(dates);
   return (
-    <section className={styles.news}>
+    <section className={styles.projects}>
       <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange} isProject/>
       {filtered.length > 0 ? (
         <ul className={styles.list}>

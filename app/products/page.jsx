@@ -2,7 +2,6 @@
 import Header from "@/components/Header";
 import Products from "@/components/products/Products";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
@@ -49,13 +48,13 @@ const ProductsPage = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         {content}
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>
   );
 };
 

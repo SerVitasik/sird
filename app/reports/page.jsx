@@ -1,7 +1,6 @@
 "use client"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import ReportsList from "@/components/reports/ReportsList";
 import Title from "@/components/ui/Title";
@@ -48,14 +47,22 @@ const Reports = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         <Title isCenter >Звіти</Title>
         {content}
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>
+    // <Wrapper>
+    //   <Header />
+    //   <MainComponent>
+    //     <Title isCenter >Звіти</Title>
+    //     {content}
+    //   </MainComponent>
+    //   <Footer />
+    // </Wrapper>
   );
 };
 

@@ -3,6 +3,7 @@ import NewsItem from "./NewsItem";
 import styles from "./News.module.scss";
 import { useState } from "react";
 import Search from "../ui/Search";
+import Title from "../ui/Title";
 
 const News = ({ news }) => {
   const newsWithCorrectDate = news.map((item)=> {
@@ -56,6 +57,7 @@ const News = ({ news }) => {
   const filteredDates = filterDates(dates);
   return (
     <section className={styles.news}>
+      <Title isCenter>Новини</Title>
       <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange}/>
       {filtered.length > 0 ? (
         <ul className={styles.list}>

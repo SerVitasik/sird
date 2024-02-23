@@ -1,7 +1,6 @@
 "use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import NewAnnouncementsForm from "@/components/announcements/NewAnnouncementsForm";
 import { useRouter } from "next/navigation";
@@ -29,13 +28,13 @@ const NewAnnouncementsPage = () => {
   }
 
   return (
-    <Wrapper>
-      <Header />
+    <>
+    <Header />
       <MainComponent>
         <NewAnnouncementsForm onAddAnnouncements={addAnnouncementsHandler} />
       </MainComponent>
-      <Footer />
-    </Wrapper>
+    <Footer />
+  </>  
   );
 };
 

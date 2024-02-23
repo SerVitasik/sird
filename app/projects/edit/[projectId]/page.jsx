@@ -1,7 +1,6 @@
 "use client"
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Wrapper from "@/components/ui/Wrapper";
 import MainComponent from "@/components/ui/MainComponent";
 import EditProjectsForm from "@/components/projects/EditProjectsForm";
 import { usePathname } from "next/navigation";
@@ -52,13 +51,13 @@ const ProjectsEditPage = () => {
 
 
   return (
-    <Wrapper>
+    <>
       <Header />
-      <MainComponent>
-        {content}
-      </MainComponent>
+        <MainComponent>
+          {content}
+        </MainComponent>
       <Footer />
-    </Wrapper>
+    </>
   );
   
 };

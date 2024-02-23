@@ -9,9 +9,9 @@ const Products = ({ products }) => {
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
 
   return (
-    <section className={styles.news}>
-      {isAuthenticated && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
+    <section className={styles.products}>
       <Title isCenter>Продукти</Title>
+      {isAuthenticated && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
       {products.length > 0 ? (
         <ul className={styles.list}>
           {products.map((products) => (
