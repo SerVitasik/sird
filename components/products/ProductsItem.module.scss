@@ -9,7 +9,7 @@
     position: relative;
 
     .actions {
-        padding: 10px 10px 0 0;
+        padding: 10px;
     }
     .title {
         font-size: 20px;
@@ -62,14 +62,16 @@
 @media (max-width: 767.98px) {
     .item {
         width: 500px;
+        .image {
+            width: 0px;
+            padding-left: 10px;
+            font-size: 18px;
+        }
     }
 }
 
 @media (max-width: 479.98px) {
     .item {
         width: 350px;
-        .image {
-            width: 150px;
-        }
     }
 }

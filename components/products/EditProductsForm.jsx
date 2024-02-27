@@ -53,7 +53,7 @@ const EditProductsForm = (props) => {
           <span>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок</label>
-            <textarea  rows='5' value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'>
+            <textarea maxLength="200"  value={title} onChange={e => setTitle(e.target.value)} type='text' id='title'>
             </textarea>
           </div>
           <div className={styles.control}>
@@ -61,7 +61,7 @@ const EditProductsForm = (props) => {
             <input type='text' onChange={e => setImage(e.target.value)} id='image' value={image}/>
           </div>
           <div className={styles.control}>
-            <label htmlFor='text'>Текст</label>
+            <label htmlFor='text'>Посилання на документ</label>
             <input
               id='text'
               onChange={e => setText(e.target.value)}

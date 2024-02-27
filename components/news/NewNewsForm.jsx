@@ -28,7 +28,8 @@ const NewNewsForm = (props) => {
   
     return (
         <form className={styles.form} onSubmit={submitHandler}>
-          <span>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </span>
+          <p>Намагайтеся не вставляти довгі посилання, якщо потрібно вставити, скорочуйте через якийсь сайт.</p>
+          <p>Додавати зображення потрібно посиланнями ось посилання на сайт, який перетворює https://postimages.org/ru/ Треба обирати пряме посилання. </p>
           <div className={styles.control}>
             <label htmlFor='title'>Заголовок новини</label>
             <input type='text' required id='title' ref={titleInputRef} />
