@@ -1,12 +1,12 @@
 .item {
-    width: 320px;
-    height: 428px;
+    width: 410px;
+    height: 578px;
     background-color: #fff;
     overflow: hidden;
     border-radius: 15px;
     position: relative;
     .title {
-        height: 70px;
+        height: 130px;
         font-size: 20px;
         text-align: center;
         display: flex;
@@ -20,7 +20,7 @@
     }
     .image {
         object-fit: cover;
-        height: 170px;
+        height: 200px;
         width: 100%;
         transition: all 0.3s ease 0s;
     }
