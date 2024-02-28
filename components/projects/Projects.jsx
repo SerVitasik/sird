@@ -3,6 +3,7 @@ import ProjectsItem from "./ProjectsItem";
 import styles from "./Projects.module.scss";
 import { useState } from "react";
 import Search from "../ui/Search";
+import Title from "../ui/Title";
 
 const Projects = ({ projects }) => {
   const projectsWithCorrectDate = projects.map((item)=> {
@@ -56,6 +57,7 @@ const Projects = ({ projects }) => {
   const filteredDates = filterDates(dates);
   return (
     <section className={styles.projects}>
+      <Title isCenter>Проєкти</Title>
       <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange} isProject/>
       {filtered.length > 0 ? (
         <ul className={styles.list}>

@@ -13,7 +13,7 @@ const ProjectsItem = ({ id, title, text, image, date }) => {
     router.push("/projects/" + id);
   }
 
-  const formatedText = text.length >= 173 ? text.slice(0, 174) + "..." : text.slice(0, text.length);
+  const formatedText = text.length >= 160 ? text.slice(0, 160) + "..." : text.slice(0, text.length);
   return (
     <li key={id} className={styles.item}>
       <div className={styles.title}>
