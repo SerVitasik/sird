@@ -8,6 +8,9 @@ export const metadata = {
   icons: {
     icon: "/icon.ico",
     },
+    verification: {
+      google: "5xig1P0pquWKupHNQs4dPTMZI11j5I49k0iihQPeu70"
+    }
 };
 
 // import { Roboto_Serif } from 'next/font/google';
