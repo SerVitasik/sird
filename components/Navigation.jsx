@@ -63,6 +63,9 @@ const Navigation = () => {
             <Link href="/products">Продукти</Link>
           </li>
           {isAuthenticated &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
+          {isAuthenticated &&  <li className={styles.link}>
+            <Link href="/teachersCatalog">Каталог</Link>
+          </li>}
         </ul>
       </nav>
     </div>

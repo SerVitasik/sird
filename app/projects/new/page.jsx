@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewProjectsForm from "@/components/projects/NewProjectsForm";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const NewProjectsPage = () => {
   const router = useRouter();
@@ -25,6 +26,11 @@ const NewProjectsPage = () => {
     } catch (error) {  
       console.error("An error occurred:", error);
     }
+  }
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  if (!isAuthenticated) {
+    return <p>Access Denied</p>
   }
 
   return (

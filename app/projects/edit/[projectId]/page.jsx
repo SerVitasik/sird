@@ -6,6 +6,7 @@ import EditProjectsForm from "@/components/projects/EditProjectsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
+import { useSelector } from "react-redux";
 
 const ProjectsEditPage = () => {
   const pathname = usePathname();
@@ -38,6 +39,11 @@ const ProjectsEditPage = () => {
     fetchData();
 
   }, [currentId]);
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  if (!isAuthenticated) {
+    return <p>Access Denied</p>
+  }
   
   let content;
 

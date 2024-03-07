@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewReportsForm from "@/components/reports/NewReportsForm";
 import { useRouter } from "next/navigation";
+import { useSelector } from "react-redux";
 
 const NewReportsPage = () => {
   const router = useRouter();
@@ -25,6 +26,11 @@ const NewReportsPage = () => {
     } catch (error) {  
       console.error("An error occurred:", error);
     }
+  }
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  if (!isAuthenticated) {
+    return <p>Access Denied</p>
   }
 
   return (

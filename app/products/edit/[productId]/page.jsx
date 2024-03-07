@@ -5,6 +5,7 @@ import MainComponent from "@/components/ui/MainComponent";
 import EditProductsForm from "@/components/products/EditProductsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import Loading from "@/components/ui/Loading";
 
 const ProductsEditPage = () => {
@@ -38,6 +39,11 @@ const ProductsEditPage = () => {
     fetchData();
 
   }, [currentId]);
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  if (!isAuthenticated) {
+    return <p>Access Denied</p>
+  }
   
   let content;
 

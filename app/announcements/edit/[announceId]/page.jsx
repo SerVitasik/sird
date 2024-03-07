@@ -6,6 +6,7 @@ import EditAnnouncementsForm from "@/components/announcements/EditAnnouncementsF
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
+import { useSelector } from "react-redux";
 
 const NewsEditPage = () => {
   const pathname = usePathname();
@@ -37,6 +38,11 @@ const NewsEditPage = () => {
     fetchData();
 
   }, [currentId]);
+
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  if (!isAuthenticated) {
+    return <p>Access Denied</p>
+  }
 
   let content;
 
