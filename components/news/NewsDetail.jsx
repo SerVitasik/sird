@@ -1,11 +1,11 @@
 "use client";
 import styles from "./NewsDetail.module.scss";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const NewsDetail = (props) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
   const router = useRouter();
   const newDate = new Date(props.news.news.date);
   const monthArray = ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Cерпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня']
@@ -29,7 +29,7 @@ const NewsDetail = (props) => {
 
   return (
     <>
-    {isAuthenticated && <div className={styles.actions}>
+    {session.status === "authenticated" && <div className={styles.actions}>
         <button className={styles.button} onClick={removeNewsHandler}>Видалити новину</button>
         <Link className={styles.button} href={`/news/edit/${props.news.news._id}`}>Редагувати новину</Link>
       </div>}

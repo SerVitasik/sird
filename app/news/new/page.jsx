@@ -4,9 +4,10 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewNewsForm from "@/components/news/NewNewsForm";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const NewNewsPage = () => {
+  const session = useSession();
   const router = useRouter();
   async function addNewsHandler(enteredNewsData) {
     try {
@@ -28,8 +29,7 @@ const NewNewsPage = () => {
     }
   }
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
 

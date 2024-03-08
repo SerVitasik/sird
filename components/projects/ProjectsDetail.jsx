@@ -1,11 +1,11 @@
 "use client";
 import styles from "./ProjectsDetail.module.scss";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const ProjectsDetail = (props) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
   const router = useRouter();
   const newDate = new Date(props.projects.projects.date);
   const monthArray = ['Січня', 'Лютого', 'Березня', 'Квітня', 'Травня', 'Червня', 'Липня', 'Cерпня', 'Вересня', 'Жовтня', 'Листопада', 'Грудня']
@@ -29,7 +29,7 @@ const ProjectsDetail = (props) => {
 
   return (
     <>
-    {isAuthenticated && <div className={styles.actions}>
+    {session.status === "authenticated" && <div className={styles.actions}>
         <button className={styles.button} onClick={removeProjectsHandler}>Видалити</button>
         <Link className={styles.button} href={`/projects/edit/${props.projects.projects._id}`}>Редагувати</Link>
       </div>}

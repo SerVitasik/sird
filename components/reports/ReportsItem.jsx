@@ -1,13 +1,14 @@
 import Image from "next/image";
 import styles from "./ReportsItem.module.scss";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
+
 const ReportsItem = ({title, text, id}) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
   const router = useRouter();
 
       const removeNewsHandler = async () => {
-        const confirmed = confirm('Ви впевнені, що хочете видалити report?');
+        const confirmed = confirm('Ви впевнені, що хочете видалити звіт?');
         if (confirmed) {
           const response = await fetch(`/api/reports?id=${id}`, {
             method: 'DELETE'
@@ -16,6 +17,7 @@ const ReportsItem = ({title, text, id}) => {
             throw new Error('Failed to delete report');
           }
           router.refresh();
+          router.replace("/");   
         }
       };
 
@@ -23,7 +25,7 @@ const ReportsItem = ({title, text, id}) => {
        <li className={styles.item}>
         <div className={styles.content}>
           <a href={text} className={styles.title}>{title}</a>
-          {isAuthenticated && <div className={styles.actions}>
+          {session.status === "authenticated" && <div className={styles.actions}>
             <button><Image  src='/announcements/delete.svg' onClick={removeNewsHandler}  alt="Delete button"
                         width={20}
                         height={20}/></button>

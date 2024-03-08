@@ -4,10 +4,11 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewProductsForm from "@/components/products/NewProductsForm";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const NewProductsPage = () => {
   const router = useRouter();
+  const session = useSession();
   async function addProductsHandler(enteredProductsData) {
     try {
       const response = await fetch("/api/products", {
@@ -28,8 +29,7 @@ const NewProductsPage = () => {
     }
   }
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
 

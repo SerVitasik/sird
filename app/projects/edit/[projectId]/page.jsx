@@ -6,13 +6,14 @@ import EditProjectsForm from "@/components/projects/EditProjectsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const ProjectsEditPage = () => {
   const pathname = usePathname();
   const currentId = pathname.split("/").pop();
   const [currentProjects, setCurrentProjects] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const session = useSession();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -40,8 +41,7 @@ const ProjectsEditPage = () => {
 
   }, [currentId]);
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
   

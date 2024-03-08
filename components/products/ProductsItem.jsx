@@ -1,12 +1,12 @@
 import styles from "./ProductsItem.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-import { useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const ProductsItem = ({ id, title, text, image }) => {
   const router = useRouter();
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
 
   const removeProductsHandler = async () => {
     const confirmed = confirm('Ви впевнені, що хочете видалити анонс?');
@@ -34,7 +34,7 @@ const ProductsItem = ({ id, title, text, image }) => {
       <a href={text} className={styles.title}>
         <h4>{title}</h4>
       </a>
-      {isAuthenticated && <div className={styles.actions}>
+      {session.status === "authenticated" && <div className={styles.actions}>
             <Link href={`/products/edit/${id}`}><Image
                         src='/announcements/edit.svg'
                         alt="Edit button"

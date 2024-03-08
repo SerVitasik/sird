@@ -11,6 +11,7 @@ import Loading from "@/components/ui/Loading";
 export default function HomePage() {
   const [news, setNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  
   useEffect(() => {
     const getNews = async () => {
       try {
@@ -38,11 +39,11 @@ export default function HomePage() {
   return (
     <>
       <Header />
-        <MainComponent>
-          <Sird />
-          {isLoading ? <Loading/> : news ? <MainNews news={news} /> : <Loading/>}
-          <Partners />
-        </MainComponent>
+      <MainComponent>
+        <Sird />
+        {isLoading ? <Loading/> : news ? <MainNews news={news} /> : <Loading/>}
+        <Partners />
+      </MainComponent>
       <Footer />
     </>
   );

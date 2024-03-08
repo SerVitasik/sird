@@ -3,13 +3,12 @@ import Link from "next/link";
 import styles from "./Navigation.module.scss";
 import { useState } from "react";
 import { signOut } from "next-auth/react";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [hideOrShow, setHideOrShow] = useState({});
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
+  const session = useSession();
   const menuHandler = () => {
     setIsOpen((prev) => !prev);
     if (isOpen) {
@@ -62,8 +61,8 @@ const Navigation = () => {
           <li className={styles.link}>
             <Link href="/products">Продукти</Link>
           </li>
-          {isAuthenticated &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
-          {isAuthenticated &&  <li className={styles.link}>
+          {session.status === "authenticated" &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
+          {session.status === "authenticated" &&  <li className={styles.link}>
             <Link href="/teachersCatalog">Каталог</Link>
           </li>}
         </ul>

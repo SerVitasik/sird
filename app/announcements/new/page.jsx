@@ -4,9 +4,11 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewAnnouncementsForm from "@/components/announcements/NewAnnouncementsForm";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const NewAnnouncementsPage = () => {
   const router = useRouter();
+  const session = useSession();
   async function addAnnouncementsHandler(enteredAnnouncementsData) {
     try {
       const response = await fetch("/api/announcements", {
@@ -26,6 +28,11 @@ const NewAnnouncementsPage = () => {
       console.error("An error occurred:", error);
     }
   }
+
+  if (session.status !== "authenticated") {
+    return <p>Access Denied</p>
+  }
+
 
   return (
     <>

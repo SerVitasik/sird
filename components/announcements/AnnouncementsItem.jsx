@@ -2,9 +2,10 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./AnnouncementsItem.module.scss";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
+
 const AnnouncementsItem = ({title, text, date, id}) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
   const router = useRouter();
 
   const newDate = new Date(date);
@@ -13,7 +14,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
       }`;
 
       const removeAnnouncementsHandler = async () => {
-        const confirmed = confirm('Ви впевнені, що хочете видалити продукт?');
+        const confirmed = confirm('Ви впевнені, що хочете видалити анонс?');
         if (confirmed) {
           const response = await fetch(`/api/announcements?id=${id}`, {
             method: 'DELETE'
@@ -31,7 +32,7 @@ const AnnouncementsItem = ({title, text, date, id}) => {
         <div className={styles.content}>
         <div className={styles.header}>
           <h4 className={styles.title}>{title}</h4>
-          {isAuthenticated && <div className={styles.actions}>
+          {session.status === "authenticated" && <div className={styles.actions}>
             <Link href={`/announcements/edit/${id}`}><Image
                         src='/announcements/edit.svg'
                         alt="Edit button"

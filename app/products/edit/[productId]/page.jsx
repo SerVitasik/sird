@@ -5,10 +5,11 @@ import MainComponent from "@/components/ui/MainComponent";
 import EditProductsForm from "@/components/products/EditProductsForm";
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
 import Loading from "@/components/ui/Loading";
+import { useSession } from "next-auth/react";
 
 const ProductsEditPage = () => {
+  const session = useSession();
   const pathname = usePathname();
   const currentId = pathname.split("/").pop();
   const [currentProducts, setCurrentProducts] = useState(null);
@@ -40,8 +41,7 @@ const ProductsEditPage = () => {
 
   }, [currentId]);
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
   

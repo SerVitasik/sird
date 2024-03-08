@@ -4,10 +4,11 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewProjectsForm from "@/components/projects/NewProjectsForm";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const NewProjectsPage = () => {
   const router = useRouter();
+  const session = useSession();
   async function addProjectsHandler(enteredProjectsData) {
     try {
       const response = await fetch("/api/projects", {
@@ -28,11 +29,9 @@ const NewProjectsPage = () => {
     }
   }
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
-
   return (
     <>
       <Header />

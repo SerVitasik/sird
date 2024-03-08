@@ -1,9 +1,9 @@
 import styles from "./Search.module.scss";
-import { useSelector } from "react-redux";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 
 const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChange, isProject }) => {
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
   return (
     <div className={styles.searchBox}>
     <select className={styles.select} onChange={handleDateChange}>
@@ -14,7 +14,7 @@ const Search = ({ handleDateChange, filteredDates, searchTerm, handleSearchChang
         </option>
       ))}
     </select>
-    {isAuthenticated && <Link href={isProject ? "/projects/new" : "/news/new"} className={styles.button}>Додати</Link>}
+    {session.status === "authenticated" && <Link href={isProject ? "/projects/new" : "/news/new"} className={styles.button}>Додати</Link>}
     <input
       type="text"
       placeholder="Пошук"

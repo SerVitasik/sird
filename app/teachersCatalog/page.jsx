@@ -4,13 +4,13 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import Teachers from "@/components/catalog/Teachers";
 import NewTeacher from "@/components/catalog/NewTeacher";
-import { useSelector } from "react-redux";
 import Loading from "@/components/ui/Loading";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const TeachersCatalogPage = () => {
-  
+  const session = useSession();
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -70,8 +70,7 @@ const TeachersCatalogPage = () => {
   }
 
   
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
 

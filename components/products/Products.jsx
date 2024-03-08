@@ -1,17 +1,16 @@
 import ProductsItem from "./ProductsItem";
 import styles from "./Products.module.scss";
-import { useSelector } from "react-redux";
 import Link from "next/link";
 import Title from "../ui/Title";
+import { useSession } from "next-auth/react";
 
 const Products = ({ products }) => {
-
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const session = useSession();
 
   return (
     <section className={styles.products}>
       <Title isCenter>Продукти</Title>
-      {isAuthenticated && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
+      {session.status === "authenticated" && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
       {products.length > 0 ? (
         <ul className={styles.list}>
           {products.map((products) => (

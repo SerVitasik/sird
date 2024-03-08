@@ -4,10 +4,11 @@ import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
 import NewReportsForm from "@/components/reports/NewReportsForm";
 import { useRouter } from "next/navigation";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const NewReportsPage = () => {
   const router = useRouter();
+  const session = useSession();
   async function addReportsHandler(enteredReportsData) {
     try {
       const response = await fetch("/api/reports", {
@@ -28,11 +29,9 @@ const NewReportsPage = () => {
     }
   }
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
-
   return (
     <>
       <Header />

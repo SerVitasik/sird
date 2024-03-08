@@ -6,13 +6,14 @@ import EditAnnouncementsForm from "@/components/announcements/EditAnnouncementsF
 import { usePathname } from "next/navigation";
 import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
-import { useSelector } from "react-redux";
+import { useSession } from "next-auth/react";
 
 const NewsEditPage = () => {
   const pathname = usePathname();
   const currentId = pathname.split("/").pop();
   const [currentAnnounce, setCurrentNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const session = useSession()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,8 +40,7 @@ const NewsEditPage = () => {
 
   }, [currentId]);
 
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-  if (!isAuthenticated) {
+  if (session.status !== "authenticated") {
     return <p>Access Denied</p>
   }
 
