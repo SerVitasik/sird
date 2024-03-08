@@ -1,7 +1,29 @@
 import styles from "./TeacherItem.module.scss";
+import { useRouter } from "next/navigation";
+
+
 
 const TeacherItem = ({teacher}) => {
-    return <tr className={styles.tr}>
+
+  const router = useRouter();
+
+  const removeTeacherHandler = async () => {
+    const confirmed = confirm('Ви впевнені, що хочете видалити інформацію про вчителя?');
+    if (confirmed) {
+      const response = await fetch(`/api/catalog?id=${teacher._id}`, {
+        method: 'DELETE'
+      });
+      if (!response.ok) {
+        throw new Error('Failed to delete announce');
+      }
+      router.refresh();
+      router.replace('/');
+    }
+  };
+  
+
+
+  return <tr className={styles.tr}>
     <td>{teacher.fullname}</td>
     <td>{teacher.birthdayDate}</td>
     <td>{teacher.higherEducation}</td>
@@ -16,6 +38,7 @@ const TeacherItem = ({teacher}) => {
     <td>{teacher.phoneNumber}</td>
     <td>{teacher.email}</td>
     <td>{teacher.facebook}</td>
+    <td><button onClick={removeTeacherHandler}>Видалити</button></td>
   </tr>
 }
 
