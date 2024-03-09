@@ -6,7 +6,6 @@ import MainComponent from "@/components/ui/MainComponent";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
 
-
 const NewsPage = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,18 +15,17 @@ const NewsPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch("/api/news", {
-          cache: 'no-store',
-          next: { revalidate: 10 }
+          cache: "no-store",
+          next: { revalidate: 10 },
         });
-    
+
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message); 
+          throw new Error(errorData.message);
         }
-    
+
         const data = await response.json();
         setData(data);
-        
       } catch (error) {
         console.error("An error occurred:", error);
       } finally {
@@ -40,21 +38,19 @@ const NewsPage = () => {
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (data) {
-    content = <News news={data.news} />
+    content = <News news={data.news} />;
   }
 
   return (
     <>
       <Header />
-        <MainComponent>
-          {content}
-        </MainComponent>
+      <MainComponent>{content}</MainComponent>
       <Footer />
-    </>  
+    </>
   );
 };
 

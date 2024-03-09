@@ -5,12 +5,12 @@ import AboutUs from "@/components/AboutUs";
 const AboutUsPage = () => {
   return (
     <>
-    <Header />
+      <Header />
       <MainComponent>
         <AboutUs />
       </MainComponent>
-    <Footer />
-  </>  
+      <Footer />
+    </>
   );
 };
 

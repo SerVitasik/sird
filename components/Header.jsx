@@ -4,17 +4,20 @@ import Image from "next/image";
 import Link from "next/link";
 
 const Header = () => {
-    return (
-        <header className={styles.header}>
-            <Link href="/" className={styles.logo}><Image src="/header/Logo.svg"
-            alt="Logo"
-            width={286}
-            height={219}
-            priority/>
-            </Link>
-            <Navigation />
-        </header>
-    );
-}
+  return (
+    <header className={styles.header}>
+      <Link href="/" className={styles.logo}>
+        <Image
+          src="/header/Logo.svg"
+          alt="Logo"
+          width={286}
+          height={219}
+          priority
+        />
+      </Link>
+      <Navigation />
+    </header>
+  );
+};
 
 export default Header;

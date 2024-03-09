@@ -1,5 +1,10 @@
+.input {
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 300px;
+}
+
 .table {
-    // table-layout: fixed;
     display: flex;
     flex-direction: column;
     margin: 50px 30px;
@@ -7,6 +12,8 @@
     background-color: #fff;
     border-collapse: collapse;
     border: 1px solid #000;
+
+
     thead {
         td {
             background: #4b92d2;

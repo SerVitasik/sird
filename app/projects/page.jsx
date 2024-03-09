@@ -6,7 +6,6 @@ import MainComponent from "@/components/ui/MainComponent";
 import { useEffect, useState } from "react";
 import Loading from "@/components/ui/Loading";
 
-
 const ProjectsPage = () => {
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -16,18 +15,17 @@ const ProjectsPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch("/api/projects", {
-          cache: 'no-store',
-          next: { revalidate: 10 }
+          cache: "no-store",
+          next: { revalidate: 10 },
         });
-    
+
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message); 
+          throw new Error(errorData.message);
         }
-    
+
         const data = await response.json();
         setData(data);
-        
       } catch (error) {
         console.error("An error occurred:", error);
       } finally {
@@ -40,19 +38,17 @@ const ProjectsPage = () => {
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (data) {
-    content = <Projects projects={data.projects} />
+    content = <Projects projects={data.projects} />;
   }
 
   return (
     <>
       <Header />
-        <MainComponent>
-          {content}
-        </MainComponent>
+      <MainComponent>{content}</MainComponent>
       <Footer />
     </>
   );

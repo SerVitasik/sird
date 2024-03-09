@@ -61,10 +61,16 @@ const Navigation = () => {
           <li className={styles.link}>
             <Link href="/products">Продукти</Link>
           </li>
-          {session.status === "authenticated" &&  <button className={styles.btn} onClick={() => signOut()}>Вийти</button>}
-          {session.status === "authenticated" &&  <li className={styles.link}>
-            <Link href="/teachersCatalog">Каталог</Link>
-          </li>}
+          {session.status === "authenticated" && (
+            <button className={styles.btn} onClick={() => signOut()}>
+              Вийти
+            </button>
+          )}
+          {session.status === "authenticated" && (
+            <li className={styles.link}>
+              <Link href="/teachersCatalog">Каталог</Link>
+            </li>
+          )}
         </ul>
       </nav>
     </div>

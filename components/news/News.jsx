@@ -6,37 +6,36 @@ import Search from "../ui/Search";
 import Title from "../ui/Title";
 
 const News = ({ news }) => {
-  const newsWithCorrectDate = news.map((item)=> {
-    return {...item, date: new Date(item.date)}
-  })
-
+  const newsWithCorrectDate = news.map((item) => {
+    return { ...item, date: new Date(item.date) };
+  });
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredByContentNews, setFilteredNews] = useState(newsWithCorrectDate);
+  const [filteredByContentNews, setFilteredNews] =
+    useState(newsWithCorrectDate);
   const [selectedDate, setSelectedDate] = useState("");
 
   const filteredDateNews =
     selectedDate === ""
       ? newsWithCorrectDate
-      : newsWithCorrectDate.filter(
-          (item) => {
-            return item.date.getFullYear().toString() === selectedDate.toString()
-          }
-        );
+      : newsWithCorrectDate.filter((item) => {
+          return item.date.getFullYear().toString() === selectedDate.toString();
+        });
 
   const filtered = filteredByContentNews.filter((newsObject) => {
-    return filteredDateNews.some(element => JSON.stringify(element) === JSON.stringify(newsObject));
+    return filteredDateNews.some(
+      (element) => JSON.stringify(element) === JSON.stringify(newsObject)
+    );
   });
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
     setTimeout(() => {
-      const filteredByContent = newsWithCorrectDate.filter(
-        (item) => {
-          return item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
+      const filteredByContent = newsWithCorrectDate.filter((item) => {
+        return (
+          item.title.toLowerCase().includes(e.target.value.toLowerCase()) ||
           item.text.toLowerCase().includes(e.target.value.toLowerCase())
-        }
-          
-      );
+        );
+      });
       setFilteredNews(filteredByContent);
     }, 300);
   };
@@ -58,7 +57,12 @@ const News = ({ news }) => {
   return (
     <section className={styles.news}>
       <Title isCenter>Новини</Title>
-      <Search handleDateChange={handleDateChange} filteredDates={filteredDates} searchTerm={searchTerm} handleSearchChange={handleSearchChange}/>
+      <Search
+        handleDateChange={handleDateChange}
+        filteredDates={filteredDates}
+        searchTerm={searchTerm}
+        handleSearchChange={handleSearchChange}
+      />
       {filtered.length > 0 ? (
         <ul className={styles.list}>
           {filtered

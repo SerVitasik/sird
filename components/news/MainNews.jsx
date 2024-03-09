@@ -3,10 +3,9 @@ import styles from "./MainNews.module.scss";
 import Title from "../ui/Title";
 import Link from "next/link";
 
-const MainNews = ({news}) => {
-
-  const newsWithCorrectDate = news.news.map((item)=> {
-    return {...item, date: new Date(item.date)}
+const MainNews = ({ news }) => {
+  const newsWithCorrectDate = news.news.map((item) => {
+    return { ...item, date: new Date(item.date) };
   });
 
   return (
@@ -18,7 +17,8 @@ const MainNews = ({news}) => {
         </Link>
       </div>
       <ul className={styles.list}>
-        {newsWithCorrectDate.sort((newsA, newsB) => newsB.date - newsA.date)
+        {newsWithCorrectDate
+          .sort((newsA, newsB) => newsB.date - newsA.date)
           .slice(0, 3)
           .map((news) => (
             <NewsItem

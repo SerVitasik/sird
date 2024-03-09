@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
@@ -8,7 +8,6 @@ import { useState, useEffect } from "react";
 import Loading from "@/components/ui/Loading";
 
 const Announcements = () => {
-
   const [data, setData] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -17,15 +16,15 @@ const Announcements = () => {
       try {
         setIsLoading(true);
         const response = await fetch("/api/announcements", {
-          cache: 'no-store',
-          next: { revalidate: 10 }
+          cache: "no-store",
+          next: { revalidate: 10 },
         });
-    
+
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message); 
+          throw new Error(errorData.message);
         }
-    
+
         const data = await response.json();
         setData(data);
         setIsLoading(false);
@@ -39,22 +38,22 @@ const Announcements = () => {
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (data) {
-    content = <AnnouncementsList announcements={data.announcements} />
+    content = <AnnouncementsList announcements={data.announcements} />;
   }
 
   return (
     <>
-    <Header />
+      <Header />
       <MainComponent>
         <Title isCenter>Анонси</Title>
         {content}
       </MainComponent>
-    <Footer />
-  </>  
+      <Footer />
+    </>
   );
 };
 

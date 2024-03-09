@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
@@ -20,7 +20,7 @@ const ProductsEditPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch(`/api/products/${currentId}`, {
-          cache: 'no-store',
+          cache: "no-store",
         });
 
         if (!response.ok) {
@@ -30,42 +30,37 @@ const ProductsEditPage = () => {
 
         const data = await response.json();
 
-          setCurrentProducts(data);
-          setIsLoading(false);
+        setCurrentProducts(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
-      } 
+      }
     };
 
     fetchData();
-
   }, [currentId]);
 
   if (session.status !== "authenticated") {
-    return <p>Access Denied</p>
+    return <p>Access Denied</p>;
   }
-  
+
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (currentProducts) {
-    content = <EditProductsForm products={currentProducts} />
+    content = <EditProductsForm products={currentProducts} />;
   }
-
 
   return (
     <>
-    <Header />
-      <MainComponent>
-        {content}
-      </MainComponent>
-    <Footer />
-  </>
+      <Header />
+      <MainComponent>{content}</MainComponent>
+      <Footer />
+    </>
   );
-  
 };
 
 export default ProductsEditPage;

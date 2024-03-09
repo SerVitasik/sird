@@ -5,15 +5,14 @@ import MainComponent from "@/components/ui/MainComponent";
 import LoginForm from "@/components/auth/LoginForm";
 
 const Login = () => {
-
   return (
     <>
-    <Header />
+      <Header />
       <MainComponent>
         <LoginForm />
       </MainComponent>
-    <Footer />
-  </>  
+      <Footer />
+    </>
   );
 };
 

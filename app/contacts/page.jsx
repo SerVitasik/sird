@@ -6,12 +6,12 @@ import Contacts from "@/components/Contacts";
 const ContactsPage = () => {
   return (
     <>
-    <Header />
+      <Header />
       <MainComponent>
-      <Contacts/>
+        <Contacts />
       </MainComponent>
-    <Footer withoutContent />
-  </>  
+      <Footer withoutContent />
+    </>
   );
 };
 

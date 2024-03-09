@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,7 +18,7 @@ const NewsDetailPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch(`/api/news/${currentId}`, {
-          cache: 'no-store',
+          cache: "no-store",
         });
 
         if (!response.ok) {
@@ -28,36 +28,32 @@ const NewsDetailPage = () => {
 
         const data = await response.json();
 
-          setCurrentNews(data);
-          setIsLoading(false);
+        setCurrentNews(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
       }
     };
 
     fetchData();
-
   }, [currentId]);
 
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (currentNews) {
-    content = <NewsDetail news={currentNews} />
+    content = <NewsDetail news={currentNews} />;
   }
-
 
   return (
     <>
-    <Header />
-      <MainComponent>
-        {content}
-      </MainComponent>
-    <Footer />
-  </>  
+      <Header />
+      <MainComponent>{content}</MainComponent>
+      <Footer />
+    </>
   );
 };
 

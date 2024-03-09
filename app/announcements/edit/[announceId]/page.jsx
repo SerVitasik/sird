@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MainComponent from "@/components/ui/MainComponent";
@@ -13,14 +13,14 @@ const NewsEditPage = () => {
   const currentId = pathname.split("/").pop();
   const [currentAnnounce, setCurrentNews] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const session = useSession()
+  const session = useSession();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setIsLoading(true);
         const response = await fetch(`/api/announcements/${currentId}`, {
-          cache: 'no-store',
+          cache: "no-store",
         });
 
         if (!response.ok) {
@@ -29,41 +29,37 @@ const NewsEditPage = () => {
         }
 
         const data = await response.json();
-          setCurrentNews(data);
-          setIsLoading(false);
+        setCurrentNews(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
-      } 
+      }
     };
 
     fetchData();
-
   }, [currentId]);
 
   if (session.status !== "authenticated") {
-    return <p>Access Denied</p>
+    return <p>Access Denied</p>;
   }
 
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (currentAnnounce) {
-    content =  <EditAnnouncementsForm announce={currentAnnounce} />
+    content = <EditAnnouncementsForm announce={currentAnnounce} />;
   }
-  
+
   return (
     <>
-    <Header />
-      <MainComponent>
-        {content}
-      </MainComponent>
-    <Footer />
-  </>  
+      <Header />
+      <MainComponent>{content}</MainComponent>
+      <Footer />
+    </>
   );
-  
 };
 
 export default NewsEditPage;

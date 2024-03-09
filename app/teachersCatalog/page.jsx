@@ -24,13 +24,13 @@ const TeachersCatalogPage = () => {
           "Content-Type": "application/json",
         },
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message); 
+        throw new Error(errorData.message);
       }
       router.replace("/");
-    } catch (error) {  
+    } catch (error) {
       console.error("An error occurred:", error);
     }
   }
@@ -40,15 +40,15 @@ const TeachersCatalogPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch("/api/catalog", {
-          cache: 'no-store',
-          next: { revalidate: 10 }
+          cache: "no-store",
+          next: { revalidate: 10 },
         });
-    
+
         if (!response.ok) {
           const errorData = await response.json();
-          throw new Error(errorData.message); 
+          throw new Error(errorData.message);
         }
-    
+
         const data = await response.json();
         setData(data);
         setIsLoading(false);
@@ -62,28 +62,26 @@ const TeachersCatalogPage = () => {
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (data) {
-    content = <Teachers teachers={data.catalog} />
+    content = <Teachers teachers={data.catalog} />;
   }
 
-  
   if (session.status !== "authenticated") {
-    return <p>Access Denied</p>
+    return <p>Access Denied</p>;
   }
-
 
   return (
     <>
-    <Header />
+      <Header />
       <MainComponent>
-        <NewTeacher onAddTeacher={onAddTeacherHandler}/>
+        <NewTeacher onAddTeacher={onAddTeacherHandler} />
         {content}
       </MainComponent>
-    <Footer />
-  </>  
+      <Footer />
+    </>
   );
 };
 

@@ -18,26 +18,26 @@ const NewProjectsPage = () => {
           "Content-Type": "application/json",
         },
       });
-      
+
       if (!response.ok) {
         const errorData = await response.json();
-        throw new Error(errorData.message); 
+        throw new Error(errorData.message);
       }
       router.replace("/");
-    } catch (error) {  
+    } catch (error) {
       console.error("An error occurred:", error);
     }
   }
 
   if (session.status !== "authenticated") {
-    return <p>Access Denied</p>
+    return <p>Access Denied</p>;
   }
   return (
     <>
       <Header />
-        <MainComponent>
-          <NewProjectsForm onAddProjects={addProjectsHandler} />
-        </MainComponent>
+      <MainComponent>
+        <NewProjectsForm onAddProjects={addProjectsHandler} />
+      </MainComponent>
       <Footer />
     </>
   );

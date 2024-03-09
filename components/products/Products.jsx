@@ -10,19 +10,23 @@ const Products = ({ products }) => {
   return (
     <section className={styles.products}>
       <Title isCenter>Продукти</Title>
-      {session.status === "authenticated" && <Link href="/products/new" className={styles.button}>Додати продукт</Link>}
+      {session.status === "authenticated" && (
+        <Link href="/products/new" className={styles.button}>
+          Додати продукт
+        </Link>
+      )}
       {products.length > 0 ? (
         <ul className={styles.list}>
           {products.map((products) => (
-              <ProductsItem
-                key={products["_id"]}
-                id={products["_id"]}
-                title={products.title}
-                image={products.image}
-                text={products.text}
-                date={products.date}
-              />
-            ))}
+            <ProductsItem
+              key={products["_id"]}
+              id={products["_id"]}
+              title={products.title}
+              image={products.image}
+              text={products.text}
+              date={products.date}
+            />
+          ))}
         </ul>
       ) : (
         <div className={styles.error}>Продукти не знайдено</div>

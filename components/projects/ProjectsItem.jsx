@@ -13,13 +13,16 @@ const ProjectsItem = ({ id, title, text, image, date }) => {
     router.push("/projects/" + id);
   }
 
-  const formatedText = text.length >= 276 ? text.slice(0, 273) + "..." : text.slice(0, text.length);
+  const formatedText =
+    text.length >= 276
+      ? text.slice(0, 273) + "..."
+      : text.slice(0, text.length);
   return (
     <li key={id} className={styles.item}>
       <div className={styles.title}>
         <h4>{title}</h4>
       </div>
-      
+
       <img
         className={styles.image}
         src={image}

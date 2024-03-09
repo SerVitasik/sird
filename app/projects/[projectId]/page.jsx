@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
@@ -18,7 +18,7 @@ const ProjectsDetailPage = () => {
       try {
         setIsLoading(true);
         const response = await fetch(`/api/projects/${currentId}`, {
-          cache: 'no-store',
+          cache: "no-store",
         });
 
         if (!response.ok) {
@@ -28,34 +28,30 @@ const ProjectsDetailPage = () => {
 
         const data = await response.json();
 
-          setCurrentProjects(data);
-          setIsLoading(false);
+        setCurrentProjects(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("An error occurred:", error);
       }
     };
 
     fetchData();
-
   }, [currentId]);
 
   let content;
 
   if (isLoading) {
-    content = <Loading/>
+    content = <Loading />;
   }
 
   if (currentProjects) {
-    content = <ProjectsDetail projects={currentProjects} />
+    content = <ProjectsDetail projects={currentProjects} />;
   }
-
 
   return (
     <>
       <Header />
-        <MainComponent>
-          {content}
-        </MainComponent>
+      <MainComponent>{content}</MainComponent>
       <Footer />
     </>
   );
