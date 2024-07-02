@@ -53,6 +53,10 @@ body {
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
 }
+html {
+  width:100vw;
+  overflow-x:hidden;
+}
 
 input,
 button,

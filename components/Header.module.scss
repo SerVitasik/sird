@@ -1,13 +1,13 @@
 .header {
     background-color: #fff;
     gap: 35px;
-    margin: 0 auto;
+    margin: 10px auto;
     color: #fff;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 244px;
     max-width: 1300px;
+    width: 100%;
     .logo {
         border-radius: 50%;
         position: relative;
@@ -33,7 +33,7 @@
     .header {
         height: 200px;
         max-width: 700px;
-        padding: 0 10px;
+        padding: 10px 10px;
         gap: 40px;
         .logo {
             img {
@@ -52,7 +52,7 @@
     .header {
         gap: 30px;
         // margin: 10px auto;
-        margin: 0;
+        margin: 10px 0;
         max-width: none;
         padding: 0px 20px;
         height: 150px;

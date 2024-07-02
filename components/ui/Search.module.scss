@@ -3,13 +3,23 @@
     display: flex;
     justify-content: space-between;
     gap: 10px;
+    width: 1300px;
     .select {
         border-radius: 5px;
+        padding: 2px;
+        &:focus {
+            border: 2px solid #417fb6;
+            padding: 0px;
+        }
     }
     .input {
         border-radius: 5px;
         padding: 10px 10px;
         width: 300px;
+        &:focus {
+            border: 2px solid #417fb6;
+            padding: 8px;
+        }
     }
     .button {
         border-radius: 5px;
@@ -34,8 +44,21 @@
     }
 }
 
+@media (max-width: 1400px) {
+    .searchBox {
+        width: 860px;
+    }
+}
+
+@media (max-width: 991.98px) {
+    .searchBox {
+        width: 725px;
+    }
+}
+
 @media (max-width: 767.98px) {
     .searchBox {
+        width: 100%;
         padding: 10px 5px;
         .input {
             padding: 5px 10px;
@@ -43,3 +66,4 @@
         }
     }
 }
+
